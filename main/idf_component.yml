@@ -1,0 +1,5 @@
+dependencies:
+  idf: ">=5.0"
+  espressif/usb_host_uvc: "^2.4.1"
+  espressif/esp_wifi_remote: "*"
+  espressif/mdns: "*"
