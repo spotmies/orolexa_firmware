@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2015-2025 Espressif Systems (Shanghai) CO LTD
+ * SPDX-FileCopyrightText: 2015-2026 Espressif Systems (Shanghai) CO LTD
  *
  * SPDX-License-Identifier: Apache-2.0
  */
@@ -226,6 +226,17 @@ void generate_startup_event(uint8_t cap, uint32_t ext_cap)
 	*pos = ESP_PRIV_FIRMWARE_CHIP_ID;   pos++;len++;
 	*pos = LENGTH_1_BYTE;               pos++;len++;
 	*pos = CONFIG_IDF_FIRMWARE_CHIP_ID; pos++;len++;
+
+#if CONFIG_ESP_SDIO_STREAMING_MODE
+	uint8_t sdio_mode = 1;
+#else
+	uint8_t sdio_mode = 0;
+#endif
+
+	/* TLV - SDIO mode */
+	*pos = ESP_PRIV_TRANS_SDIO_MODE;    pos++;len++;
+	*pos = LENGTH_1_BYTE;               pos++;len++;
+	*pos = sdio_mode;                   pos++;len++;
 
 	/* TLV - Capability */
 	*pos = ESP_PRIV_CAPABILITY;         pos++;len++;
@@ -483,7 +494,7 @@ static inline esp_err_t copy_tx_payload(uint8_t *sendbuf, uint8_t* payload, uint
 
 static int32_t sdio_write(interface_handle_t *handle, interface_buffer_handle_t *buf_handle)
 {
-	int32_t total_len = 0;
+	uint32_t total_len = 0;
 	uint8_t* sendbuf = NULL;
 	uint16_t offset = sizeof(struct esp_payload_header);
 	int ret = 0;

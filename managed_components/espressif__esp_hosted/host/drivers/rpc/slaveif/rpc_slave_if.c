@@ -178,6 +178,12 @@ ctrl_cmd_t * rpc_slaveif_wifi_set_config(ctrl_cmd_t *req)
 	RPC_DECODE_RSP_IF_NOT_ASYNC();
 }
 
+ctrl_cmd_t * rpc_slaveif_wifi_scan_params(ctrl_cmd_t *req)
+{
+	RPC_SEND_REQ(RPC_ID__Req_WifiScanParams);
+	RPC_DECODE_RSP_IF_NOT_ASYNC();
+}
+
 ctrl_cmd_t * rpc_slaveif_wifi_scan_start(ctrl_cmd_t *req)
 {
 	RPC_SEND_REQ(RPC_ID__Req_WifiScanStart);
@@ -718,6 +724,14 @@ ctrl_cmd_t * rpc_slaveif_gpio_input_enable(ctrl_cmd_t *req)
 ctrl_cmd_t * rpc_slaveif_gpio_set_pull_mode(ctrl_cmd_t *req)
 {
 	RPC_SEND_REQ(RPC_ID__Req_GpioSetPullMode);
+	RPC_DECODE_RSP_IF_NOT_ASYNC();
+}
+#endif
+
+#if H_EXT_COEX_SUPPORT
+ctrl_cmd_t * rpc_slaveif_ext_coex(ctrl_cmd_t *req)
+{
+	RPC_SEND_REQ(RPC_ID__Req_ExtCoex);
 	RPC_DECODE_RSP_IF_NOT_ASYNC();
 }
 #endif

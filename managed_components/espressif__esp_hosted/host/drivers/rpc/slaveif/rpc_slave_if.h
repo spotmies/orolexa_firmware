@@ -35,7 +35,8 @@ extern "C" {
 #define STATUS_LENGTH                        14
 #define VENDOR_OUI_BUF                       3
 
-#define IFACE_MAC_SIZE                       8 // 6 for MAC-48, 8 for EIU-64, 2 for EFUSE_EXT
+#define IFACE_MAC_SIZE                       8  // 6 for MAC-48, 8 for EIU-64, 2 for EFUSE_EXT
+#define IDF_TARGET_SIZE                      20 // increase as required if CONFIG_IDF_TARGET gets larger
 
 /*
 #define SUCCESS 0
@@ -110,6 +111,17 @@ typedef struct {
 	wifi_config_t u;
 } wifi_cfg_t;
 
+
+typedef struct {
+	wifi_scan_time_t scan_time;
+	uint8_t home_chan_dwell_time;
+} rpc_wifi_scan_default_params_t;
+
+typedef struct {
+	uint8_t cmd;
+	rpc_wifi_scan_default_params_t config;
+	bool is_config_null;
+} rpc_wifi_scan_params_t;
 
 /** @brief Parameters for an SSID scan. */
 typedef struct {
@@ -197,6 +209,11 @@ typedef struct {
 	uint32_t major1;
 	uint32_t minor1;
 	uint32_t patch1;
+	int32_t revision;
+	int32_t prerelease;
+	int32_t build;
+	uint32_t chip_id;
+	char idf_target[IDF_TARGET_SIZE];
 } rpc_coprocessor_fwversion_t;
 
 typedef struct {
@@ -380,6 +397,20 @@ typedef struct {
 } rpc_gpio_set_pull_mode_t;
 #endif
 
+#if H_EXT_COEX_SUPPORT
+typedef struct {
+	uint32_t cmd;
+	uint32_t set_gpio_wire_type;
+	int32_t set_gpio_request_pin;
+	int32_t set_gpio_priority_pin;
+	int32_t set_gpio_grant_pin;
+	int32_t set_gpio_tx_line_pin;
+	uint32_t set_work_mode;
+	uint32_t set_grant_delay_us;
+	bool set_validate_high;
+} rpc_ext_coex_t;
+#endif
+
 typedef struct Ctrl_cmd_t {
 	/* msg type could be 1. req 2. resp 3. notification */
 	uint8_t msg_type;
@@ -398,6 +429,7 @@ typedef struct Ctrl_cmd_t {
 	union {
 		wifi_init_config_t          wifi_init_config;
 		wifi_cfg_t                  wifi_config;
+		rpc_wifi_scan_params_t      wifi_scan_params;
 		wifi_mac_t                  wifi_mac;
 		hosted_mode_t               wifi_mode;
 
@@ -579,6 +611,9 @@ typedef struct Ctrl_cmd_t {
 
 		rpc_gpio_set_pull_mode_t    gpio_set_pull_mode;
 #endif
+#if H_EXT_COEX_SUPPORT
+		rpc_ext_coex_t              ext_coex;
+#endif
 	}u;
 
 	/* By default this callback is set to NULL.
@@ -752,6 +787,7 @@ ctrl_cmd_t * rpc_slaveif_wifi_connect(ctrl_cmd_t *req);
 ctrl_cmd_t * rpc_slaveif_wifi_disconnect(ctrl_cmd_t *req);
 ctrl_cmd_t * rpc_slaveif_wifi_set_config(ctrl_cmd_t *req);
 ctrl_cmd_t * rpc_slaveif_wifi_get_config(ctrl_cmd_t *req);
+ctrl_cmd_t * rpc_slaveif_wifi_scan_params(ctrl_cmd_t *req);
 ctrl_cmd_t * rpc_slaveif_wifi_scan_start(ctrl_cmd_t *req);
 ctrl_cmd_t * rpc_slaveif_wifi_scan_stop(ctrl_cmd_t *req);
 ctrl_cmd_t * rpc_slaveif_wifi_scan_get_ap_num(ctrl_cmd_t *req);
@@ -858,6 +894,9 @@ ctrl_cmd_t * rpc_slaveif_gpio_get_level(ctrl_cmd_t *req);
 ctrl_cmd_t * rpc_slaveif_gpio_set_direction(ctrl_cmd_t *req);
 ctrl_cmd_t * rpc_slaveif_gpio_input_enable(ctrl_cmd_t *req);
 ctrl_cmd_t * rpc_slaveif_gpio_set_pull_mode(ctrl_cmd_t *req);
+#endif
+#if H_EXT_COEX_SUPPORT
+ctrl_cmd_t * rpc_slaveif_ext_coex(ctrl_cmd_t *req);
 #endif
 #ifdef __cplusplus
 }

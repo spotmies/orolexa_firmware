@@ -1,0 +1,804 @@
+Command: /Users/tejasai/.espressif/python_env/idf6.1_py3.14_env/bin/python /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/tools/idf_monitor.py -p /dev/cu.usbmodem5AAF2857331 -b 115200 --toolchain-prefix riscv32-esp-elf- --target esp32p4 --revision 1 --decode-panic backtrace /Users/tejasai/Downloads/orolexa/DentalS3/build/DentalSystemS3.elf /Users/tejasai/Downloads/orolexa/DentalS3/build/bootloader/bootloader.elf -m '/Users/tejasai/.espressif/python_env/idf6.1_py3.14_env/bin/python' '/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/tools/idf.py' '-p' '/dev/cu.usbmodem5AAF2857331'
+(134�ESP-ROM:esp32p4-eco2-20240710
+Build:Jul 10 2024
+rst:0x1 (POWERON),boot:0x30f (SPI_FAST_FLASH_BOOT)
+SPI mode:DIO, clock div:1
+load:0x4ff33ce0,len:0x1524
+load:0x4ff29ed0,len:0xe44
+load:0x4ff2cbd0,len:0x3548
+entry 0x4ff29eda
+[0;32mI (25) boot: ESP-IDF v6.1-dev-3824-g484e56869c 2nd stage bootloader[0m
+[0;32mI (26) boot: compile time Apr 13 2026 14:01:41[0m
+[0;32mI (26) boot: Multicore bootloader[0m
+[0;32mI (29) boot: chip revision: v1.0[0m
+[0;32mI (30) boot: efuse block revision: v0.3[0m
+[0;32mI (34) boot.esp32p4: SPI Speed      : 80MHz[0m
+[0;32mI (38) boot.esp32p4: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32p4: SPI Flash Size : 2MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (50) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (59) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (72) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (79) boot: End of partition table[0m
+[0;32mI (82) esp_image: segment 0: paddr=00010020 vaddr=40090020 size=3ca08h (248328) map[0m
+[0;32mI (133) esp_image: segment 1: paddr=0004ca30 vaddr=30100000 size=00094h (   148) load[0m
+[0;32mI (135) esp_image: segment 2: paddr=0004cacc vaddr=4ff00000 size=0354ch ( 13644) load[0m
+[0;32mI (141) esp_image: segment 3: paddr=00050020 vaddr=40000020 size=8a9e0h (567776) map[0m
+[0;32mI (243) esp_image: segment 4: paddr=000daa08 vaddr=4ff0354c size=10e0ch ( 69132) load[0m
+[0;32mI (258) esp_image: segment 5: paddr=000eb81c vaddr=4ff14380 size=036e0h ( 14048) load[0m
+[0;32mI (262) esp_image: segment 6: paddr=000eef04 vaddr=50108080 size=00024h (    36) load[0m
+[0;32mI (268) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (268) boot: Disabling RNG early entropy source...[0m
+[0;32mI (286) hex_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (286) hex_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (286) hex_psram: DriveStr.    : 0x00 (25 Ohm)[0m
+[0;32mI (287) hex_psram: dev id       : 0x03 (generation 4)[0m
+[0;32mI (292) hex_psram: density      : 0x07 (256 Mbit)[0m
+[0;32mI (296) hex_psram: good-die     : 0x06 (Pass)[0m
+[0;32mI (300) hex_psram: SRF          : 0x02 (Slow Refresh)[0m
+[0;32mI (305) hex_psram: BurstType    : 0x00 ( Wrap)[0m
+[0;32mI (309) hex_psram: BurstLen     : 0x03 (2048 Byte)[0m
+[0;32mI (314) hex_psram: BitMode      : 0x01 (X16 Mode)[0m
+[0;32mI (318) hex_psram: Readlatency  : 0x04 (14 cycles@Fixed)[0m
+[0;32mI (323) hex_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (327) MSPI Timing: Enter psram timing tuning[0m
+[0;32mI (504) esp_psram: Found 32MB PSRAM device[0m
+[0;32mI (504) esp_psram: Speed: 200MHz[0m
+[0;32mI (505) hex_psram: psram CS IO is dedicated[0m
+[0;32mI (506) cpu_start: Multicore app[0m
+[0;32mI (1490) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (1500) cpu_start: GPIO 38 and 37 are used as console UART I/O pins[0m
+[0;32mI (1500) cpu_start: Pro cpu start user code[0m
+[0;32mI (1500) cpu_start: cpu freq: 360000000 Hz[0m
+[0;32mI (1502) app_init: Application information:[0m
+[0;32mI (1506) app_init: Project name:     DentalSystemS3[0m
+[0;32mI (1511) app_init: App version:      b6252c3-dirty[0m
+[0;32mI (1515) app_init: Compile time:     Apr 13 2026 14:05:15[0m
+[0;32mI (1520) app_init: ELF file SHA256:  edbe11955...[0m
+[0;32mI (1525) app_init: ESP-IDF:          v6.1-dev-3824-g484e56869c[0m
+[0;32mI (1530) efuse_init: Min chip rev:     v0.1[0m
+[0;32mI (1534) efuse_init: Max chip rev:     v1.99 [0m
+[0;32mI (1538) efuse_init: Chip rev:         v1.0[0m
+[0;32mI (1542) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (1549) heap_init: At 4FF18F50 len 00022070 (136 KiB): RETENT_RAM[0m
+[0;32mI (1555) heap_init: At 4FF3AFC0 len 00004BF0 (18 KiB): RAM[0m
+[0;32mI (1560) heap_init: At 4FF81E30 len 0001E1D0 (120 KiB): RAM[0m
+[0;32mI (1565) heap_init: At 501080A4 len 00007F5C (31 KiB): RTCRAM[0m
+[0;32mI (1570) heap_init: At 30100094 len 00001F6C (7 KiB): SPM[0m
+[0;32mI (1576) esp_psram: Adding pool of 32768K of PSRAM memory to heap allocator[0m
+[0;32mI (1583) spi_flash: detected chip: gd[0m
+[0;32mI (1586) spi_flash: flash io: dio[0m
+[0;33mW (1589) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (1601) host_init: ESP Hosted : Host chip_ip[18][0m
+[0;32mI (1606) H_API: ESP-Hosted starting. Hosted_Tasks: prio:23, stack: 5120 RPC_task_stack: 5120[0m
+[0;32mI (1614) H_API: ** add_esp_wifi_remote_channels **[0m
+[0;32mI (1620) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (1625) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (1632) sleep_clock: System sleep clock ICG setting initialization[0m
+[0;32mI (1638) H_SDIO_DRV: sdio_data_to_rx_buf_task started[0m
+[0;32mI (1638) main_task: Started on CPU0[0m
+[0;32mI (1648) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (1658) main_task: Calling app_main()[0m
+[0;32mI (1678) ESP32P4: Motor GPIOs (IN1/IN2) config: OK[0m
+[0;32mI (1678) ESP32P4: LEDC timer config: OK[0m
+[0;32mI (1678) ESP32P4: GPIO21 (ENA/PWM) LEDC channel: OK[0m
+[0;32mI (1678) ESP32P4: GPIO21 (ENA): 50% PWM for 5s - multimeter DC should show ~1.65V[0m
+[0;32mI (6678) ESP32P4: GPIO21 (ENA): PWM test done, duty=0[0m
+[0;32mI (6678) ESP32P4: Motor GPIOs initialized: IN1=0, IN2=1, ENA=0[0m
+[0;32mI (7678) ESP32P4: === MOTOR GPIO TEST ===[0m
+[0;32mI (7678) ESP32P4: Testing GPIO32 (IN1): Setting HIGH[0m
+[0;32mI (8178) ESP32P4: GPIO32 (IN1) read back: 0 (expected: 1)[0m
+[0;32mI (8178) ESP32P4: Testing GPIO32 (IN1): Setting LOW[0m
+[0;32mI (8678) ESP32P4: GPIO32 (IN1) read back: 0 (expected: 0)[0m
+[0;32mI (8678) ESP32P4: Testing GPIO33 (IN2): Setting HIGH[0m
+[0;32mI (9178) ESP32P4: GPIO33 (IN2) read back: 0 (expected: 1)[0m
+[0;32mI (9178) ESP32P4: Testing GPIO33 (IN2): Setting LOW[0m
+[0;32mI (9678) ESP32P4: GPIO33 (IN2) read back: 0 (expected: 0)[0m
+[0;32mI (9678) ESP32P4: Testing GPIO21 (ENA): Setting PWM duty=2048[0m
+[0;32mI (10178) ESP32P4: GPIO21 (ENA) PWM duty read back: 2048 (expected: 2048)[0m
+[0;32mI (10178) ESP32P4: Testing GPIO21 (ENA): Setting PWM duty=0[0m
+[0;32mI (10678) ESP32P4: GPIO21 (ENA) PWM duty read back: 0 (expected: 0)[0m
+[0;32mI (10678) ESP32P4: === MOTOR GPIO TEST COMPLETE ===[0m
+[1;31mE (10678) esp_clk_tree: esp_clk_tree_src_get_freq_hz(28): unknown clk src[0m
+[1;31mE (10678) i2c.common: i2c_select_periph_clock(280): i2c get clock frequency error[0m
+[1;31mE (10688) i2c.master: i2c_param_master_config(879): i2c select clock failed[0m
+[1;31mE (10688) i2c.master: i2c_new_master_bus(1061): i2c configure parameter failed[0m
+ESP_ERROR_CHECK failed: esp_err_t 0x102 (ESP_ERR_INVALID_ARG) at 0x40029b24
+file: "./main/main.c" line 164
+func: mpu_init
+expression: i2c_new_master_bus(&bus_cfg, &i2c_bus_handle)
+
+abort() was called at PC 0x4ff09bb9 on core 0
+Core  0 register dump:
+MEPC    : 0x4ff09c10  RA      : 0x4ff09bc2  SP      : 0x4ff26020  GP      : 0x4ff14b80  
+TP      : 0x4ff261a0  T0      : 0x37363534  T1      : 0x7271706f  T2      : 0x33323130  
+S0/FP   : 0x00000004  S1      : 0x4ff26084  A0      : 0x4ff2604c  A1      : 0x4ff26082  
+A2      : 0x00000000  A3      : 0x4ff26079  A4      : 0x00000001  A5      : 0x4ff82000  
+A6      : 0x00000000  A7      : 0x76757473  S2      : 0x00000000  S3      : 0x00000000  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x6e6d6c6b  T4      : 0x6a696867  T5      : 0x66656463  T6      : 0x62613938  
+MSTATUS : 0x00011880  MTVEC   : 0x4ff00003  MCAUSE  : 0x00000002  MTVAL   : 0x00000000  
+MHARTID : 0x00000000  
+
+add symbol table from file "/Users/tejasai/Downloads/orolexa/DentalS3/build/bootloader/bootloader.elf"
+panic_abort (details=details@entry=0x4ff2604c "abort() was called at PC 0x4ff09bb9 on core 0") at /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_system/panic.c:509
+509	    asm("unimp");   // should be an invalid operation on RISC-V targets
+#0  panic_abort (details=details@entry=0x4ff2604c "abort() was called at PC 0x4ff09bb9 on core 0") at /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_system/panic.c:509
+#1  0x4ff09bc2 in esp_system_abort (details=details@entry=0x4ff2604c "abort() was called at PC 0x4ff09bb9 on core 0") at /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_system/port/esp_system_chip.c:87
+#2  0x4ff0849a in abort () at /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_libc/src/abort.c:38
+#3  0x4ff09bbc in _esp_error_check_failed (rc=<optimized out>, file=file@entry=0x400a31f4 "", line=line@entry=164, function=function@entry=0x400c6768 <__func__.0> "", expression=expression@entry=0x400a31c4 "") at /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_system/esp_err.c:38
+#4  0x40029b28 in mpu_init () at /Users/tejasai/Downloads/orolexa/DentalS3/main/main.c:164
+#5  0x40029c22 in app_main () at /Users/tejasai/Downloads/orolexa/DentalS3/main/main.c:946
+#6  0x40089a24 in main_task (args=<error reading variable: value has been optimized out>) at /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/freertos/app_startup.c:199
+#7  0x4ff0d8f4 in vPortTaskWrapper (pxCode=<optimized out>, pvParameters=<optimized out>) at /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/freertos/FreeRTOS-Kernel/portable/riscv/port.c:259
+
+
+
+ELF file SHA256: edbe11955
+
+Rebooting...
+ESP-ROM:esp32p4-eco2-20240710
+Build:Jul 10 2024
+rst:0xc (SW_CPU_RESET),boot:0x30f (SPI_FAST_FLASH_BOOT)
+Core0 Saved PC:0x4ff052c4
+Core1 Saved PC:0x4ff0540c
+SPI mode:DIO, clock div:1
+load:0x4ff33ce0,len:0x1524
+load:0x4ff29ed0,len:0xe44
+load:0x4ff2cbd0,len:0x3548
+entry 0x4ff29eda
+[0;32mI (33) boot: ESP-IDF v6.1-dev-3824-g484e56869c 2nd stage bootloader[0m
+[0;32mI (33) boot: compile time Apr 13 2026 14:01:41[0m
+[0;32mI (34) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v1.0[0m
+[0;32mI (38) boot: efuse block revision: v0.3[0m
+[0;32mI (41) boot.esp32p4: SPI Speed      : 80MHz[0m
+[0;32mI (45) boot.esp32p4: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32p4: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (57) boot: Partition Table:[0m
+[0;32mI (60) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (66) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (73) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (79) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (86) boot: End of partition table[0m
+[0;32mI (89) esp_image: segment 0: paddr=00010020 vaddr=40090020 size=3ca08h (248328) map[0m
+[0;32mI (133) esp_image: segment 1: paddr=0004ca30 vaddr=30100000 size=00094h (   148) load[0m
+[0;32mI (135) esp_image: segment 2: paddr=0004cacc vaddr=4ff00000 size=0354ch ( 13644) load[0m
+[0;32mI (140) esp_image: segment 3: paddr=00050020 vaddr=40000020 size=8a9e0h (567776) map[0m
+[0;32mI (228) esp_image: segment 4: paddr=000daa08 vaddr=4ff0354c size=10e0ch ( 69132) load[0m
+[0;32mI (240) esp_image: segment 5: paddr=000eb81c vaddr=4ff14380 size=036e0h ( 14048) load[0m
+[0;32mI (244) esp_image: segment 6: paddr=000eef04 vaddr=50108080 size=00024h (    36) load[0m
+[0;32mI (250) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (250) boot: Disabling RNG early entropy source...[0m
+[0;32mI (268) hex_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (269) hex_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (269) hex_psram: DriveStr.    : 0x00 (25 Ohm)[0m
+[0;32mI (270) hex_psram: dev id       : 0x03 (generation 4)[0m
+[0;32mI (274) hex_psram: density      : 0x07 (256 Mbit)[0m
+[0;32mI (279) hex_psram: good-die     : 0x06 (Pass)[0m
+[0;32mI (283) hex_psram: SRF          : 0x02 (Slow Refresh)[0m
+[0;32mI (288) hex_psram: BurstType    : 0x00 ( Wrap)[0m
+[0;32mI (292) hex_psram: BurstLen     : 0x03 (2048 Byte)[0m
+[0;32mI (296) hex_psram: BitMode      : 0x01 (X16 Mode)[0m
+[0;32mI (301) hex_psram: Readlatency  : 0x04 (14 cycles@Fixed)[0m
+[0;32mI (306) hex_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (310) MSPI Timing: Enter psram timing tuning[0m
+[0;32mI (486) esp_psram: Found 32MB PSRAM device[0m
+[0;32mI (487) esp_psram: Speed: 200MHz[0m
+[0;32mI (489) hex_psram: psram CS IO is dedicated[0m
+[0;32mI (489) cpu_start: Multicore app[0m
+[0;32mI (1474) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (1483) cpu_start: GPIO 38 and 37 are used as console UART I/O pins[0m
+[0;32mI (1484) cpu_start: Pro cpu start user code[0m
+[0;32mI (1484) cpu_start: cpu freq: 360000000 Hz[0m
+[0;32mI (1486) app_init: Application information:[0m
+[0;32mI (1490) app_init: Project name:     DentalSystemS3[0m
+[0;32mI (1494) app_init: App version:      b6252c3-dirty[0m
+[0;32mI (1499) app_init: Compile time:     Apr 13 2026 14:05:15[0m
+[0;32mI (1504) app_init: ELF file SHA256:  edbe11955...[0m
+[0;32mI (1508) app_init: ESP-IDF:          v6.1-dev-3824-g484e56869c[0m
+[0;32mI (1514) efuse_init: Min chip rev:     v0.1[0m
+[0;32mI (1518) efuse_init: Max chip rev:     v1.99 [0m
+[0;32mI (1522) efuse_init: Chip rev:         v1.0[0m
+[0;32mI (1526) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (1532) heap_init: At 4FF18F50 len 00022070 (136 KiB): RETENT_RAM[0m
+[0;32mI (1538) heap_init: At 4FF3AFC0 len 00004BF0 (18 KiB): RAM[0m
+[0;32mI (1543) heap_init: At 4FF81E30 len 0001E1D0 (120 KiB): RAM[0m
+[0;32mI (1549) heap_init: At 501080A4 len 00007F5C (31 KiB): RTCRAM[0m
+[0;32mI (1554) heap_init: At 30100094 len 00001F6C (7 KiB): SPM[0m
+[0;32mI (1559) esp_psram: Adding pool of 32768K of PSRAM memory to heap allocator[0m
+[0;32mI (1567) spi_flash: detected chip: gd[0m
+[0;32mI (1569) spi_flash: flash io: dio[0m
+[0;33mW (1572) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (1585) host_init: ESP Hosted : Host chip_ip[18][0m
+[0;32mI (1589) H_API: ESP-Hosted starting. Hosted_Tasks: prio:23, stack: 5120 RPC_task_stack: 5120[0m
+[0;32mI (1597) H_API: ** add_esp_wifi_remote_channels **[0m
+[0;32mI (1603) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (1608) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (1615) sleep_clock: System sleep clock ICG setting initialization[0m
+[0;32mI (1621) H_SDIO_DRV: sdio_data_to_rx_buf_task started[0m
+[0;32mI (1621) main_task: Started on CPU0[0m
+[0;32mI (1631) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (1641) main_task: Calling app_main()[0m
+[0;32mI (1661) ESP32P4: Motor GPIOs (IN1/IN2) config: OK[0m
+[0;32mI (1661) ESP32P4: LEDC timer config: OK[0m
+[0;32mI (1661) ESP32P4: GPIO21 (ENA/PWM) LEDC channel: OK[0m
+[0;32mI (1661) ESP32P4: GPIO21 (ENA): 50% PWM for 5s - multimeter DC should show ~1.65V[0m
+[0;32mI (6661) ESP32P4: GPIO21 (ENA): PWM test done, duty=0[0m
+[0;32mI (6661) ESP32P4: Motor GPIOs initialized: IN1=0, IN2=1, ENA=0[0m
+[0;32mI (7661) ESP32P4: === MOTOR GPIO TEST ===[0m
+[0;32mI (7661) ESP32P4: Testing GPIO32 (IN1): Setting HIGH[0m
+[0;32mI (8161) ESP32P4: GPIO32 (IN1) read back: 0 (expected: 1)[0m
+[0;32mI (8161) ESP32P4: Testing GPIO32 (IN1): Setting LOW[0m
+[0;32mI (8661) ESP32P4: GPIO32 (IN1) read back: 0 (expected: 0)[0m
+[0;32mI (8661) ESP32P4: Testing GPIO33 (IN2): Setting HIGH[0m
+[0;32mI (9161) ESP32P4: GPIO33 (IN2) read back: 0 (expected: 1)[0m
+[0;32mI (9161) ESP32P4: Testing GPIO33 (IN2): Setting LOW[0m
+[0;32mI (9661) ESP32P4: GPIO33 (IN2) read back: 0 (expected: 0)[0m
+[0;32mI (9661) ESP32P4: Testing GPIO21 (ENA): Setting PWM duty=2048[0m
+[0;32mI (10161) ESP32P4: GPIO21 (ENA) PWM duty read back: 2048 (expected: 2048)[0m
+[0;32mI (10161) ESP32P4: Testing GPIO21 (ENA): Setting PWM duty=0[0m
+[0;32mI (10661) ESP32P4: GPIO21 (ENA) PWM duty read back: 0 (expected: 0)[0m
+[0;32mI (10661) ESP32P4: === MOTOR GPIO TEST COMPLETE ===[0m
+[1;31mE (10661) esp_clk_tree: esp_clk_tree_src_get_freq_hz(28): unknown clk src[0m
+[1;31mE (10661) i2c.common: i2c_select_periph_clock(280): i2c get clock frequency error[0m
+[1;31mE (10671) i2c.master: i2c_param_master_config(879): i2c select clock failed[0m
+[1;31mE (10671) i2c.master: i2c_new_master_bus(1061): i2c configure parameter failed[0m
+ESP_ERROR_CHECK failed: esp_err_t 0x102 (ESP_ERR_INVALID_ARG) at 0x40029b24
+file: "./main/main.c" line 164
+func: mpu_init
+expression: i2c_new_master_bus(&bus_cfg, &i2c_bus_handle)
+
+abort() was called at PC 0x4ff09bb9 on core 0
+Core  0 register dump:
+MEPC    : 0x4ff09c10  RA      : 0x4ff09bc2  SP      : 0x4ff26020  GP      : 0x4ff14b80  
+TP      : 0x4ff261a0  T0      : 0x37363534  T1      : 0x7271706f  T2      : 0x33323130  
+S0/FP   : 0x00000004  S1      : 0x4ff26084  A0      : 0x4ff2604c  A1      : 0x4ff26082  
+A2      : 0x00000000  A3      : 0x4ff26079  A4      : 0x00000001  A5      : 0x4ff82000  
+A6      : 0x00000000  A7      : 0x76757473  S2      : 0x00000000  S3      : 0x00000000  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x6e6d6c6b  T4      : 0x6a696867  T5      : 0x66656463  T6      : 0x62613938  
+MSTATUS : 0x00011880  MTVEC   : 0x4ff00003  MCAUSE  : 0x00000002  MTVAL   : 0x00000000  
+MHARTID : 0x00000000  
+
+add symbol table from file "/Users/tejasai/Downloads/orolexa/DentalS3/build/bootloader/bootloader.elf"
+panic_abort (details=details@entry=0x4ff2604c "abort() was called at PC 0x4ff09bb9 on core 0") at /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_system/panic.c:509
+509	    asm("unimp");   // should be an invalid operation on RISC-V targets
+#0  panic_abort (details=details@entry=0x4ff2604c "abort() was called at PC 0x4ff09bb9 on core 0") at /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_system/panic.c:509
+#1  0x4ff09bc2 in esp_system_abort (details=details@entry=0x4ff2604c "abort() was called at PC 0x4ff09bb9 on core 0") at /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_system/port/esp_system_chip.c:87
+#2  0x4ff0849a in abort () at /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_libc/src/abort.c:38
+#3  0x4ff09bbc in _esp_error_check_failed (rc=<optimized out>, file=file@entry=0x400a31f4 "", line=line@entry=164, function=function@entry=0x400c6768 <__func__.0> "", expression=expression@entry=0x400a31c4 "") at /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_system/esp_err.c:38
+#4  0x40029b28 in mpu_init () at /Users/tejasai/Downloads/orolexa/DentalS3/main/main.c:164
+#5  0x40029c22 in app_main () at /Users/tejasai/Downloads/orolexa/DentalS3/main/main.c:946
+#6  0x40089a24 in main_task (args=<error reading variable: value has been optimized out>) at /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/freertos/app_startup.c:199
+#7  0x4ff0d8f4 in vPortTaskWrapper (pxCode=<optimized out>, pvParameters=<optimized out>) at /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/freertos/FreeRTOS-Kernel/portable/riscv/port.c:259
+
+
+
+ELF file SHA256: edbe11955
+
+Rebooting...
+ESP-ROM:esp32p4-eco2-20240710
+Build:Jul 10 2024
+rst:0xc (SW_CPU_RESET),boot:0x30f (SPI_FAST_FLASH_BOOT)
+Core0 Saved PC:0x4ff052c4
+Core1 Saved PC:0x4ff0540c
+SPI mode:DIO, clock div:1
+load:0x4ff33ce0,len:0x1524
+load:0x4ff29ed0,len:0xe44
+load:0x4ff2cbd0,len:0x3548
+entry 0x4ff29eda
+[0;32mI (33) boot: ESP-IDF v6.1-dev-3824-g484e56869c 2nd stage bootloader[0m
+[0;32mI (33) boot: compile time Apr 13 2026 14:01:41[0m
+[0;32mI (34) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v1.0[0m
+[0;32mI (38) boot: efuse block revision: v0.3[0m
+[0;32mI (41) boot.esp32p4: SPI Speed      : 80MHz[0m
+[0;32mI (45) boot.esp32p4: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32p4: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (57) boot: Partition Table:[0m
+[0;32mI (60) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (66) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (73) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (79) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (86) boot: End of partition table[0m
+[0;32mI (89) esp_image: segment 0: paddr=00010020 vaddr=40090020 size=3ca08h (248328) map[0m
+[0;32mI (133) esp_image: segment 1: paddr=0004ca30 vaddr=30100000 size=00094h (   148) load[0m
+[0;32mI (135) esp_image: segment 2: paddr=0004cacc vaddr=4ff00000 size=0354ch ( 13644) load[0m
+[0;32mI (140) esp_image: segment 3: paddr=00050020 vaddr=40000020 size=8a9e0h (567776) map[0m
+[0;32mI (228) esp_image: segment 4: paddr=000daa08 vaddr=4ff0354c size=10e0ch ( 69132) load[0m
+[0;32mI (240) esp_image: segment 5: paddr=000eb81c vaddr=4ff14380 size=036e0h ( 14048) load[0m
+[0;32mI (244) esp_image: segment 6: paddr=000eef04 vaddr=50108080 size=00024h (    36) load[0m
+[0;32mI (250) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (250) boot: Disabling RNG early entropy source...[0m
+[0;32mI (268) hex_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (269) hex_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (269) hex_psram: DriveStr.    : 0x00 (25 Ohm)[0m
+[0;32mI (270) hex_psram: dev id       : 0x03 (generation 4)[0m
+[0;32mI (274) hex_psram: density      : 0x07 (256 Mbit)[0m
+[0;32mI (279) hex_psram: good-die     : 0x06 (Pass)[0m
+[0;32mI (283) hex_psram: SRF          : 0x02 (Slow Refresh)[0m
+[0;32mI (288) hex_psram: BurstType    : 0x00 ( Wrap)[0m
+[0;32mI (292) hex_psram: BurstLen     : 0x03 (2048 Byte)[0m
+[0;32mI (296) hex_psram: BitMode      : 0x01 (X16 Mode)[0m
+[0;32mI (301) hex_psram: Readlatency  : 0x04 (14 cycles@Fixed)[0m
+[0;32mI (306) hex_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (310) MSPI Timing: Enter psram timing tuning[0m
+[0;32mI (486) esp_psram: Found 32MB PSRAM device[0m
+[0;32mI (487) esp_psram: Speed: 200MHz[0m
+[0;32mI (489) hex_psram: psram CS IO is dedicated[0m
+[0;32mI (489) cpu_start: Multicore app[0m
+[0;32mI (1474) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (1483) cpu_start: GPIO 38 and 37 are used as console UART I/O pins[0m
+[0;32mI (1484) cpu_start: Pro cpu start user code[0m
+[0;32mI (1484) cpu_start: cpu freq: 360000000 Hz[0m
+[0;32mI (1486) app_init: Application information:[0m
+[0;32mI (1490) app_init: Project name:     DentalSystemS3[0m
+[0;32mI (1494) app_init: App version:      b6252c3-dirty[0m
+[0;32mI (1499) app_init: Compile time:     Apr 13 2026 14:05:15[0m
+[0;32mI (1504) app_init: ELF file SHA256:  edbe11955...[0m
+[0;32mI (1508) app_init: ESP-IDF:          v6.1-dev-3824-g484e56869c[0m
+[0;32mI (1514) efuse_init: Min chip rev:     v0.1[0m
+[0;32mI (1518) efuse_init: Max chip rev:     v1.99 [0m
+[0;32mI (1522) efuse_init: Chip rev:         v1.0[0m
+[0;32mI (1526) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (1532) heap_init: At 4FF18F50 len 00022070 (136 KiB): RETENT_RAM[0m
+[0;32mI (1538) heap_init: At 4FF3AFC0 len 00004BF0 (18 KiB): RAM[0m
+[0;32mI (1543) heap_init: At 4FF81E30 len 0001E1D0 (120 KiB): RAM[0m
+[0;32mI (1549) heap_init: At 501080A4 len 00007F5C (31 KiB): RTCRAM[0m
+[0;32mI (1554) heap_init: At 30100094 len 00001F6C (7 KiB): SPM[0m
+[0;32mI (1559) esp_psram: Adding pool of 32768K of PSRAM memory to heap allocator[0m
+[0;32mI (1567) spi_flash: detected chip: gd[0m
+[0;32mI (1569) spi_flash: flash io: dio[0m
+[0;33mW (1572) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (1585) host_init: ESP Hosted : Host chip_ip[18][0m
+[0;32mI (1589) H_API: ESP-Hosted starting. Hosted_Tasks: prio:23, stack: 5120 RPC_task_stack: 5120[0m
+[0;32mI (1597) H_API: ** add_esp_wifi_remote_channels **[0m
+[0;32mI (1603) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (1608) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (1615) sleep_clock: System sleep clock ICG setting initialization[0m
+[0;32mI (1621) H_SDIO_DRV: sdio_data_to_rx_buf_task started[0m
+[0;32mI (1621) main_task: Started on CPU0[0m
+[0;32mI (1631) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (1641) main_task: Calling app_main()[0m
+[0;32mI (1661) ESP32P4: Motor GPIOs (IN1/IN2) config: OK[0m
+[0;32mI (1661) ESP32P4: LEDC timer config: OK[0m
+[0;32mI (1661) ESP32P4: GPIO21 (ENA/PWM) LEDC channel: OK[0m
+[0;32mI (1661) ESP32P4: GPIO21 (ENA): 50% PWM for 5s - multimeter DC should show ~1.65V[0m
+[0;32mI (6661) ESP32P4: GPIO21 (ENA): PWM test done, duty=0[0m
+[0;32mI (6661) ESP32P4: Motor GPIOs initialized: IN1=0, IN2=1, ENA=0[0m
+[0;32mI (7661) ESP32P4: === MOTOR GPIO TEST ===[0m
+[0;32mI (7661) ESP32P4: Testing GPIO32 (IN1): Setting HIGH[0m
+[0;32mI (8161) ESP32P4: GPIO32 (IN1) read back: 0 (expected: 1)[0m
+[0;32mI (8161) ESP32P4: Testing GPIO32 (IN1): Setting LOW[0m
+[0;32mI (8661) ESP32P4: GPIO32 (IN1) read back: 0 (expected: 0)[0m
+[0;32mI (8661) ESP32P4: Testing GPIO33 (IN2): Setting HIGH[0m
+[0;32mI (9161) ESP32P4: GPIO33 (IN2) read back: 0 (expected: 1)[0m
+[0;32mI (9161) ESP32P4: Testing GPIO33 (IN2): Setting LOW[0m
+[0;32mI (9661) ESP32P4: GPIO33 (IN2) read back: 0 (expected: 0)[0m
+[0;32mI (9661) ESP32P4: Testing GPIO21 (ENA): Setting PWM duty=2048[0m
+[0;32mI (10161) ESP32P4: GPIO21 (ENA) PWM duty read back: 2048 (expected: 2048)[0m
+[0;32mI (10161) ESP32P4: Testing GPIO21 (ENA): Setting PWM duty=0[0m
+[0;32mI (10661) ESP32P4: GPIO21 (ENA) PWM duty read back: 0 (expected: 0)[0m
+[0;32mI (10661) ESP32P4: === MOTOR GPIO TEST COMPLETE ===[0m
+[1;31mE (10661) esp_clk_tree: esp_clk_tree_src_get_freq_hz(28): unknown clk src[0m
+[1;31mE (10661) i2c.common: i2c_select_periph_clock(280): i2c get clock frequency error[0m
+[1;31mE (10671) i2c.master: i2c_param_master_config(879): i2c select clock failed[0m
+[1;31mE (10671) i2c.master: i2c_new_master_bus(1061): i2c configure parameter failed[0m
+ESP_ERROR_CHECK failed: esp_err_t 0x102 (ESP_ERR_INVALID_ARG) at 0x40029b24
+file: "./main/main.c" line 164
+func: mpu_init
+expression: i2c_new_master_bus(&bus_cfg, &i2c_bus_handle)
+
+abort() was called at PC 0x4ff09bb9 on core 0
+Core  0 register dump:
+MEPC    : 0x4ff09c10  RA      : 0x4ff09bc2  SP      : 0x4ff26020  GP      : 0x4ff14b80  
+TP      : 0x4ff261a0  T0      : 0x37363534  T1      : 0x7271706f  T2      : 0x33323130  
+S0/FP   : 0x00000004  S1      : 0x4ff26084  A0      : 0x4ff2604c  A1      : 0x4ff26082  
+A2      : 0x00000000  A3      : 0x4ff26079  A4      : 0x00000001  A5      : 0x4ff82000  
+A6      : 0x00000000  A7      : 0x76757473  S2      : 0x00000000  S3      : 0x00000000  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x6e6d6c6b  T4      : 0x6a696867  T5      : 0x66656463  T6      : 0x62613938  
+MSTATUS : 0x00011880  MTVEC   : 0x4ff00003  MCAUSE  : 0x00000002  MTVAL   : 0x00000000  
+MHARTID : 0x00000000  
+
+add symbol table from file "/Users/tejasai/Downloads/orolexa/DentalS3/build/bootloader/bootloader.elf"
+panic_abort (details=details@entry=0x4ff2604c "abort() was called at PC 0x4ff09bb9 on core 0") at /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_system/panic.c:509
+509	    asm("unimp");   // should be an invalid operation on RISC-V targets
+#0  panic_abort (details=details@entry=0x4ff2604c "abort() was called at PC 0x4ff09bb9 on core 0") at /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_system/panic.c:509
+#1  0x4ff09bc2 in esp_system_abort (details=details@entry=0x4ff2604c "abort() was called at PC 0x4ff09bb9 on core 0") at /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_system/port/esp_system_chip.c:87
+#2  0x4ff0849a in abort () at /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_libc/src/abort.c:38
+#3  0x4ff09bbc in _esp_error_check_failed (rc=<optimized out>, file=file@entry=0x400a31f4 "", line=line@entry=164, function=function@entry=0x400c6768 <__func__.0> "", expression=expression@entry=0x400a31c4 "") at /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_system/esp_err.c:38
+#4  0x40029b28 in mpu_init () at /Users/tejasai/Downloads/orolexa/DentalS3/main/main.c:164
+#5  0x40029c22 in app_main () at /Users/tejasai/Downloads/orolexa/DentalS3/main/main.c:946
+#6  0x40089a24 in main_task (args=<error reading variable: value has been optimized out>) at /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/freertos/app_startup.c:199
+#7  0x4ff0d8f4 in vPortTaskWrapper (pxCode=<optimized out>, pvParameters=<optimized out>) at /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/freertos/FreeRTOS-Kernel/portable/riscv/port.c:259
+
+
+
+ELF file SHA256: edbe11955
+
+Rebooting...
+ESP-ROM:esp32p4-eco2-20240710
+Build:Jul 10 2024
+rst:0xc (SW_CPU_RESET),boot:0x30f (SPI_FAST_FLASH_BOOT)
+Core0 Saved PC:0x4ff052c4
+Core1 Saved PC:0x4ff0540c
+SPI mode:DIO, clock div:1
+load:0x4ff33ce0,len:0x1524
+load:0x4ff29ed0,len:0xe44
+load:0x4ff2cbd0,len:0x3548
+entry 0x4ff29eda
+[0;32mI (33) boot: ESP-IDF v6.1-dev-3824-g484e56869c 2nd stage bootloader[0m
+[0;32mI (33) boot: compile time Apr 13 2026 14:01:41[0m
+[0;32mI (34) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v1.0[0m
+[0;32mI (38) boot: efuse block revision: v0.3[0m
+[0;32mI (41) boot.esp32p4: SPI Speed      : 80MHz[0m
+[0;32mI (45) boot.esp32p4: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32p4: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (57) boot: Partition Table:[0m
+[0;32mI (60) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (66) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (73) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (79) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (86) boot: End of partition table[0m
+[0;32mI (89) esp_image: segment 0: paddr=00010020 vaddr=40090020 size=3ca08h (248328) map[0m
+[0;32mI (133) esp_image: segment 1: paddr=0004ca30 vaddr=30100000 size=00094h (   148) load[0m
+[0;32mI (135) esp_image: segment 2: paddr=0004cacc vaddr=4ff00000 size=0354ch ( 13644) load[0m
+[0;32mI (140) esp_image: segment 3: paddr=00050020 vaddr=40000020 size=8a9e0h (567776) map[0m
+[0;32mI (228) esp_image: segment 4: paddr=000daa08 vaddr=4ff0354c size=10e0ch ( 69132) load[0m
+[0;32mI (240) esp_image: segment 5: paddr=000eb81c vaddr=4ff14380 size=036e0h ( 14048) load[0m
+[0;32mI (244) esp_image: segment 6: paddr=000eef04 vaddr=50108080 size=00024h (    36) load[0m
+[0;32mI (250) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (250) boot: Disabling RNG early entropy source...[0m
+[0;32mI (268) hex_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (269) hex_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (269) hex_psram: DriveStr.    : 0x00 (25 Ohm)[0m
+[0;32mI (270) hex_psram: dev id       : 0x03 (generation 4)[0m
+[0;32mI (274) hex_psram: density      : 0x07 (256 Mbit)[0m
+[0;32mI (279) hex_psram: good-die     : 0x06 (Pass)[0m
+[0;32mI (283) hex_psram: SRF          : 0x02 (Slow Refresh)[0m
+[0;32mI (288) hex_psram: BurstType    : 0x00 ( Wrap)[0m
+[0;32mI (292) hex_psram: BurstLen     : 0x03 (2048 Byte)[0m
+[0;32mI (296) hex_psram: BitMode      : 0x01 (X16 Mode)[0m
+[0;32mI (301) hex_psram: Readlatency  : 0x04 (14 cycles@Fixed)[0m
+[0;32mI (306) hex_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (310) MSPI Timing: Enter psram timing tuning[0m
+[0;32mI (486) esp_psram: Found 32MB PSRAM device[0m
+[0;32mI (487) esp_psram: Speed: 200MHz[0m
+[0;32mI (489) hex_psram: psram CS IO is dedicated[0m
+[0;32mI (489) cpu_start: Multicore app[0m
+[0;32mI (1474) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (1483) cpu_start: GPIO 38 and 37 are used as console UART I/O pins[0m
+[0;32mI (1484) cpu_start: Pro cpu start user code[0m
+[0;32mI (1484) cpu_start: cpu freq: 360000000 Hz[0m
+[0;32mI (1486) app_init: Application information:[0m
+[0;32mI (1490) app_init: Project name:     DentalSystemS3[0m
+[0;32mI (1494) app_init: App version:      b6252c3-dirty[0m
+[0;32mI (1499) app_init: Compile time:     Apr 13 2026 14:05:15[0m
+[0;32mI (1504) app_init: ELF file SHA256:  edbe11955...[0m
+[0;32mI (1508) app_init: ESP-IDF:          v6.1-dev-3824-g484e56869c[0m
+[0;32mI (1514) efuse_init: Min chip rev:     v0.1[0m
+[0;32mI (1518) efuse_init: Max chip rev:     v1.99 [0m
+[0;32mI (1522) efuse_init: Chip rev:         v1.0[0m
+[0;32mI (1526) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (1532) heap_init: At 4FF18F50 len 00022070 (136 KiB): RETENT_RAM[0m
+[0;32mI (1538) heap_init: At 4FF3AFC0 len 00004BF0 (18 KiB): RAM[0m
+[0;32mI (1543) heap_init: At 4FF81E30 len 0001E1D0 (120 KiB): RAM[0m
+[0;32mI (1549) heap_init: At 501080A4 len 00007F5C (31 KiB): RTCRAM[0m
+[0;32mI (1554) heap_init: At 30100094 len 00001F6C (7 KiB): SPM[0m
+[0;32mI (1559) esp_psram: Adding pool of 32768K of PSRAM memory to heap allocator[0m
+[0;32mI (1567) spi_flash: detected chip: gd[0m
+[0;32mI (1569) spi_flash: flash io: dio[0m
+[0;33mW (1572) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (1585) host_init: ESP Hosted : Host chip_ip[18][0m
+[0;32mI (1589) H_API: ESP-Hosted starting. Hosted_Tasks: prio:23, stack: 5120 RPC_task_stack: 5120[0m
+[0;32mI (1597) H_API: ** add_esp_wifi_remote_channels **[0m
+[0;32mI (1603) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (1608) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (1615) sleep_clock: System sleep clock ICG setting initialization[0m
+[0;32mI (1621) H_SDIO_DRV: sdio_data_to_rx_buf_task started[0m
+[0;32mI (1621) main_task: Started on CPU0[0m
+[0;32mI (1631) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (1641) main_task: Calling app_main()[0m
+[0;32mI (1661) ESP32P4: Motor GPIOs (IN1/IN2) config: OK[0m
+[0;32mI (1661) ESP32P4: LEDC timer config: OK[0m
+[0;32mI (1661) ESP32P4: GPIO21 (ENA/PWM) LEDC channel: OK[0m
+[0;32mI (1661) ESP32P4: GPIO21 (ENA): 50% PWM for 5s - multimeter DC should show ~1.65V[0m
+[0;32mI (6661) ESP32P4: GPIO21 (ENA): PWM test done, duty=0[0m
+[0;32mI (6661) ESP32P4: Motor GPIOs initialized: IN1=0, IN2=1, ENA=0[0m
+[0;32mI (7661) ESP32P4: === MOTOR GPIO TEST ===[0m
+[0;32mI (7661) ESP32P4: Testing GPIO32 (IN1): Setting HIGH[0m
+[0;32mI (8161) ESP32P4: GPIO32 (IN1) read back: 0 (expected: 1)[0m
+[0;32mI (8161) ESP32P4: Testing GPIO32 (IN1): Setting LOW[0m
+[0;32mI (8661) ESP32P4: GPIO32 (IN1) read back: 0 (expected: 0)[0m
+[0;32mI (8661) ESP32P4: Testing GPIO33 (IN2): Setting HIGH[0m
+[0;32mI (9161) ESP32P4: GPIO33 (IN2) read back: 0 (expected: 1)[0m
+[0;32mI (9161) ESP32P4: Testing GPIO33 (IN2): Setting LOW[0m
+[0;32mI (9661) ESP32P4: GPIO33 (IN2) read back: 0 (expected: 0)[0m
+[0;32mI (9661) ESP32P4: Testing GPIO21 (ENA): Setting PWM duty=2048[0m
+[0;32mI (10161) ESP32P4: GPIO21 (ENA) PWM duty read back: 2048 (expected: 2048)[0m
+[0;32mI (10161) ESP32P4: Testing GPIO21 (ENA): Setting PWM duty=0[0m
+[0;32mI (10661) ESP32P4: GPIO21 (ENA) PWM duty read back: 0 (expected: 0)[0m
+[0;32mI (10661) ESP32P4: === MOTOR GPIO TEST COMPLETE ===[0m
+[1;31mE (10661) esp_clk_tree: esp_clk_tree_src_get_freq_hz(28): unknown clk src[0m
+[1;31mE (10661) i2c.common: i2c_select_periph_clock(280): i2c get clock frequency error[0m
+[1;31mE (10671) i2c.master: i2c_param_master_config(879): i2c select clock failed[0m
+[1;31mE (10671) i2c.master: i2c_new_master_bus(1061): i2c configure parameter failed[0m
+ESP_ERROR_CHECK failed: esp_err_t 0x102 (ESP_ERR_INVALID_ARG) at 0x40029b24
+file: "./main/main.c" line 164
+func: mpu_init
+expression: i2c_new_master_bus(&bus_cfg, &i2c_bus_handle)
+
+abort() was called at PC 0x4ff09bb9 on core 0
+Core  0 register dump:
+MEPC    : 0x4ff09c10  RA      : 0x4ff09bc2  SP      : 0x4ff26020  GP      : 0x4ff14b80  
+TP      : 0x4ff261a0  T0      : 0x37363534  T1      : 0x7271706f  T2      : 0x33323130  
+S0/FP   : 0x00000004  S1      : 0x4ff26084  A0      : 0x4ff2604c  A1      : 0x4ff26082  
+A2      : 0x00000000  A3      : 0x4ff26079  A4      : 0x00000001  A5      : 0x4ff82000  
+A6      : 0x00000000  A7      : 0x76757473  S2      : 0x00000000  S3      : 0x00000000  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x6e6d6c6b  T4      : 0x6a696867  T5      : 0x66656463  T6      : 0x62613938  
+MSTATUS : 0x00011880  MTVEC   : 0x4ff00003  MCAUSE  : 0x00000002  MTVAL   : 0x00000000  
+MHARTID : 0x00000000  
+
+add symbol table from file "/Users/tejasai/Downloads/orolexa/DentalS3/build/bootloader/bootloader.elf"
+panic_abort (details=details@entry=0x4ff2604c "abort() was called at PC 0x4ff09bb9 on core 0") at /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_system/panic.c:509
+509	    asm("unimp");   // should be an invalid operation on RISC-V targets
+#0  panic_abort (details=details@entry=0x4ff2604c "abort() was called at PC 0x4ff09bb9 on core 0") at /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_system/panic.c:509
+#1  0x4ff09bc2 in esp_system_abort (details=details@entry=0x4ff2604c "abort() was called at PC 0x4ff09bb9 on core 0") at /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_system/port/esp_system_chip.c:87
+#2  0x4ff0849a in abort () at /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_libc/src/abort.c:38
+#3  0x4ff09bbc in _esp_error_check_failed (rc=<optimized out>, file=file@entry=0x400a31f4 "", line=line@entry=164, function=function@entry=0x400c6768 <__func__.0> "", expression=expression@entry=0x400a31c4 "") at /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_system/esp_err.c:38
+#4  0x40029b28 in mpu_init () at /Users/tejasai/Downloads/orolexa/DentalS3/main/main.c:164
+#5  0x40029c22 in app_main () at /Users/tejasai/Downloads/orolexa/DentalS3/main/main.c:946
+#6  0x40089a24 in main_task (args=<error reading variable: value has been optimized out>) at /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/freertos/app_startup.c:199
+#7  0x4ff0d8f4 in vPortTaskWrapper (pxCode=<optimized out>, pvParameters=<optimized out>) at /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/freertos/FreeRTOS-Kernel/portable/riscv/port.c:259
+
+
+
+ELF file SHA256: edbe11955
+
+Rebooting...
+ESP-ROM:esp32p4-eco2-20240710
+Build:Jul 10 2024
+rst:0xc (SW_CPU_RESET),boot:0x30f (SPI_FAST_FLASH_BOOT)
+Core0 Saved PC:0x4ff052c4
+Core1 Saved PC:0x4ff0540c
+SPI mode:DIO, clock div:1
+load:0x4ff33ce0,len:0x1524
+load:0x4ff29ed0,len:0xe44
+load:0x4ff2cbd0,len:0x3548
+entry 0x4ff29eda
+[0;32mI (33) boot: ESP-IDF v6.1-dev-3824-g484e56869c 2nd stage bootloader[0m
+[0;32mI (33) boot: compile time Apr 13 2026 14:01:41[0m
+[0;32mI (34) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v1.0[0m
+[0;32mI (38) boot: efuse block revision: v0.3[0m
+[0;32mI (41) boot.esp32p4: SPI Speed      : 80MHz[0m
+[0;32mI (45) boot.esp32p4: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32p4: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (57) boot: Partition Table:[0m
+[0;32mI (60) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (66) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (73) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (79) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (86) boot: End of partition table[0m
+[0;32mI (89) esp_image: segment 0: paddr=00010020 vaddr=40090020 size=3ca08h (248328) map[0m
+[0;32mI (133) esp_image: segment 1: paddr=0004ca30 vaddr=30100000 size=00094h (   148) load[0m
+[0;32mI (135) esp_image: segment 2: paddr=0004cacc vaddr=4ff00000 size=0354ch ( 13644) load[0m
+[0;32mI (140) esp_image: segment 3: paddr=00050020 vaddr=40000020 size=8a9e0h (567776) map[0m
+[0;32mI (228) esp_image: segment 4: paddr=000daa08 vaddr=4ff0354c size=10e0ch ( 69132) load[0m
+[0;32mI (240) esp_image: segment 5: paddr=000eb81c vaddr=4ff14380 size=036e0h ( 14048) load[0m
+[0;32mI (244) esp_image: segment 6: paddr=000eef04 vaddr=50108080 size=00024h (    36) load[0m
+[0;32mI (250) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (250) boot: Disabling RNG early entropy source...[0m
+[0;32mI (268) hex_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (269) hex_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (269) hex_psram: DriveStr.    : 0x00 (25 Ohm)[0m
+[0;32mI (270) hex_psram: dev id       : 0x03 (generation 4)[0m
+[0;32mI (274) hex_psram: density      : 0x07 (256 Mbit)[0m
+[0;32mI (279) hex_psram: good-die     : 0x06 (Pass)[0m
+[0;32mI (283) hex_psram: SRF          : 0x02 (Slow Refresh)[0m
+[0;32mI (288) hex_psram: BurstType    : 0x00 ( Wrap)[0m
+[0;32mI (292) hex_psram: BurstLen     : 0x03 (2048 Byte)[0m
+[0;32mI (296) hex_psram: BitMode      : 0x01 (X16 Mode)[0m
+[0;32mI (301) hex_psram: Readlatency  : 0x04 (14 cycles@Fixed)[0m
+[0;32mI (306) hex_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (310) MSPI Timing: Enter psram timing tuning[0m
+[0;32mI (486) esp_psram: Found 32MB PSRAM device[0m
+[0;32mI (487) esp_psram: Speed: 200MHz[0m
+[0;32mI (489) hex_psram: psram CS IO is dedicated[0m
+[0;32mI (489) cpu_start: Multicore app[0m
+[0;32mI (1474) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (1483) cpu_start: GPIO 38 and 37 are used as console UART I/O pins[0m
+[0;32mI (1484) cpu_start: Pro cpu start user code[0m
+[0;32mI (1484) cpu_start: cpu freq: 360000000 Hz[0m
+[0;32mI (1486) app_init: Application information:[0m
+[0;32mI (1490) app_init: Project name:     DentalSystemS3[0m
+[0;32mI (1494) app_init: App version:      b6252c3-dirty[0m
+[0;32mI (1499) app_init: Compile time:     Apr 13 2026 14:05:15[0m
+[0;32mI (1504) app_init: ELF file SHA256:  edbe11955...[0m
+[0;32mI (1508) app_init: ESP-IDF:          v6.1-dev-3824-g484e56869c[0m
+[0;32mI (1514) efuse_init: Min chip rev:     v0.1[0m
+[0;32mI (1518) efuse_init: Max chip rev:     v1.99 [0m
+[0;32mI (1522) efuse_init: Chip rev:         v1.0[0m
+[0;32mI (1526) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (1532) heap_init: At 4FF18F50 len 00022070 (136 KiB): RETENT_RAM[0m
+[0;32mI (1538) heap_init: At 4FF3AFC0 len 00004BF0 (18 KiB): RAM[0m
+[0;32mI (1543) heap_init: At 4FF81E30 len 0001E1D0 (120 KiB): RAM[0m
+[0;32mI (1549) heap_init: At 501080A4 len 00007F5C (31 KiB): RTCRAM[0m
+[0;32mI (1554) heap_init: At 30100094 len 00001F6C (7 KiB): SPM[0m
+[0;32mI (1559) esp_psram: Adding pool of 32768K of PSRAM memory to heap allocator[0m
+[0;32mI (1567) spi_flash: detected chip: gd[0m
+[0;32mI (1569) spi_flash: flash io: dio[0m
+[0;33mW (1572) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (1585) host_init: ESP Hosted : Host chip_ip[18][0m
+[0;32mI (1589) H_API: ESP-Hosted starting. Hosted_Tasks: prio:23, stack: 5120 RPC_task_stack: 5120[0m
+[0;32mI (1597) H_API: ** add_esp_wifi_remote_channels **[0m
+[0;32mI (1603) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (1608) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (1615) sleep_clock: System sleep clock ICG setting initialization[0m
+[0;32mI (1621) H_SDIO_DRV: sdio_data_to_rx_buf_task started[0m
+[0;32mI (1621) main_task: Started on CPU0[0m
+[0;32mI (1631) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (1641) main_task: Calling app_main()[0m
+[0;32mI (1661) ESP32P4: Motor GPIOs (IN1/IN2) config: OK[0m
+[0;32mI (1661) ESP32P4: LEDC timer config: OK[0m
+[0;32mI (1661) ESP32P4: GPIO21 (ENA/PWM) LEDC channel: OK[0m
+[0;32mI (1661) ESP32P4: GPIO21 (ENA): 50% PWM for 5s - multimeter DC should show ~1.65V[0m
+[0;32mI (6661) ESP32P4: GPIO21 (ENA): PWM test done, duty=0[0m
+[0;32mI (6661) ESP32P4: Motor GPIOs initialized: IN1=0, IN2=1, ENA=0[0m
+[0;32mI (7661) ESP32P4: === MOTOR GPIO TEST ===[0m
+[0;32mI (7661) ESP32P4: Testing GPIO32 (IN1): Setting HIGH[0m
+[0;32mI (8161) ESP32P4: GPIO32 (IN1) read back: 0 (expected: 1)[0m
+[0;32mI (8161) ESP32P4: Testing GPIO32 (IN1): Setting LOW[0m
+[0;32mI (8661) ESP32P4: GPIO32 (IN1) read back: 0 (expected: 0)[0m
+[0;32mI (8661) ESP32P4: Testing GPIO33 (IN2): Setting HIGH[0m
+[0;32mI (9161) ESP32P4: GPIO33 (IN2) read back: 0 (expected: 1)[0m
+[0;32mI (9161) ESP32P4: Testing GPIO33 (IN2): Setting LOW[0m
+[0;32mI (9661) ESP32P4: GPIO33 (IN2) read back: 0 (expected: 0)[0m
+[0;32mI (9661) ESP32P4: Testing GPIO21 (ENA): Setting PWM duty=2048[0m
+[0;32mI (10161) ESP32P4: GPIO21 (ENA) PWM duty read back: 2048 (expected: 2048)[0m
+[0;32mI (10161) ESP32P4: Testing GPIO21 (ENA): Setting PWM duty=0[0m
+[0;32mI (10661) ESP32P4: GPIO21 (ENA) PWM duty read back: 0 (expected: 0)[0m
+[0;32mI (10661) ESP32P4: === MOTOR GPIO TEST COMPLETE ===[0m
+[1;31mE (10661) esp_clk_tree: esp_clk_tree_src_get_freq_hz(28): unknown clk src[0m
+[1;31mE (10661) i2c.common: i2c_select_periph_clock(280): i2c get clock frequency error[0m
+[1;31mE (10671) i2c.master: i2c_param_master_config(879): i2c select clock failed[0m
+[1;31mE (10671) i2c.master: i2c_new_master_bus(1061): i2c configure parameter failed[0m
+ESP_ERROR_CHECK failed: esp_err_t 0x102 (ESP_ERR_INVALID_ARG) at 0x40029b24
+file: "./main/main.c" line 164
+func: mpu_init
+expression: i2c_new_master_bus(&bus_cfg, &i2c_bus_handle)
+
+abort() was called at PC 0x4ff09bb9 on core 0
+Core  0 register dump:
+MEPC    : 0x4ff09c10  RA      : 0x4ff09bc2  SP      : 0x4ff26020  GP      : 0x4ff14b80  
+TP      : 0x4ff261a0  T0      : 0x37363534  T1      : 0x7271706f  T2      : 0x33323130  
+S0/FP   : 0x00000004  S1      : 0x4ff26084  A0      : 0x4ff2604c  A1      : 0x4ff26082  
+A2      : 0x00000000  A3      : 0x4ff26079  A4      : 0x00000001  A5      : 0x4ff82000  
+A6      : 0x00000000  A7      : 0x76757473  S2      : 0x00000000  S3      : 0x00000000  
+S4      : 0x00000000  S5      : 0x00000000  S6      : 0x00000000  S7      : 0x00000000  
+S8      : 0x00000000  S9      : 0x00000000  S10     : 0x00000000  S11     : 0x00000000  
+T3      : 0x6e6d6c6b  T4      : 0x6a696867  T5      : 0x66656463  T6      : 0x62613938  
+MSTATUS : 0x00011880  MTVEC   : 0x4ff00003  MCAUSE  : 0x00000002  MTVAL   : 0x00000000  
+MHARTID : 0x00000000  
+
+add symbol table from file "/Users/tejasai/Downloads/orolexa/DentalS3/build/bootloader/bootloader.elf"
+panic_abort (details=details@entry=0x4ff2604c "abort() was called at PC 0x4ff09bb9 on core 0") at /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_system/panic.c:509
+509	    asm("unimp");   // should be an invalid operation on RISC-V targets
+#0  panic_abort (details=details@entry=0x4ff2604c "abort() was called at PC 0x4ff09bb9 on core 0") at /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_system/panic.c:509
+#1  0x4ff09bc2 in esp_system_abort (details=details@entry=0x4ff2604c "abort() was called at PC 0x4ff09bb9 on core 0") at /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_system/port/esp_system_chip.c:87
+#2  0x4ff0849a in abort () at /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_libc/src/abort.c:38
+#3  0x4ff09bbc in _esp_error_check_failed (rc=<optimized out>, file=file@entry=0x400a31f4 "", line=line@entry=164, function=function@entry=0x400c6768 <__func__.0> "", expression=expression@entry=0x400a31c4 "") at /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_system/esp_err.c:38
+#4  0x40029b28 in mpu_init () at /Users/tejasai/Downloads/orolexa/DentalS3/main/main.c:164
+#5  0x40029c22 in app_main () at /Users/tejasai/Downloads/orolexa/DentalS3/main/main.c:946
+#6  0x40089a24 in main_task (args=<error reading variable: value has been optimized out>) at /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/freertos/app_startup.c:199
+#7  0x4ff0d8f4 in vPortTaskWrapper (pxCode=<optimized out>, pvParameters=<optimized out>) at /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/freertos/FreeRTOS-Kernel/portable/riscv/port.c:259
+
+
+
+ELF file SHA256: edbe11955
+
+Rebooting...
+ESP-ROM:esp32p4-eco2-20240710
+Build:Jul 10 2024
+rst:0xc (SW_CPU_RESET),boot:0x30f (SPI_FAST_FLASH_BOOT)
+Core0 Saved PC:0x4ff052c4
+Core1 Saved PC:0x4ff0540c
+SPI mode:DIO, clock div:1
+load:0x4ff33ce0,len:0x1524
+load:0x4ff29ed0,len:0xe44
+load:0x4ff2cbd0,len:0x3548
+entry 0x4ff29eda
+[0;32mI (33) boot: ESP-IDF v6.1-dev-3824-g484e56869c 2nd stage bootloader[0m
+[0;32mI (33) boot: compile time Apr 13 2026 14:01:41[0m
+[0;32mI (34) boot: Multicore bootloader[0m
+[0;32mI (36) boot: chip revision: v1.0[0m
+[0;32mI (38) boot: efuse block revision: v0.3[0m
+[0;32mI (41) boot.esp32p4: SPI Speed      : 80MHz[0m
+[0;32mI (45) boot.esp32p4: SPI Mode       : DIO[0m
+[0;32mI (49) boot.esp32p4: SPI Flash Size : 2MB[0m
+[0;32mI (53) boot: Enabling RNG early entropy source...[0m
+[0;32mI (57) boot: Partition Table:[0m
+[0;32mI (60) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (66) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (73) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (79) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (86) boot: End of partition table[0m
+[0;32mI (89) esp_image: segment 0: paddr=00010020 vaddr=40090020 size=3ca08h (248328) map[0m
+[0;32mI (133) esp_image: segment 1: paddr=0004ca30 vaddr=30100000 size=00094h (   148) load[0m
+[0;32mI (135) esp_image: segment 2: paddr=0004cacc vaddr=4ff00000 size=0354ch ( 13644) load[0m
+[0;32mI (140) esp_image: segment 3: paddr=00050020 vaddr=40000020 size=8a9e0h (567776) map[0m
+[0;32mI (228) esp_image: segment 4: paddr=000daa08 vaddr=4ff0354c size=10e0ch ( 69132) load[0m
+[0;32mI (240) esp_image: segment 5: paddr=000eb81c vaddr=4ff14380 size=036e0h ( 14048) load[0m
+[0;32mI (244) esp_image: segment 6: paddr=000eef04 vaddr=50108080 size=00024h (    36) load[0m
+[0;32mI (250) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (250) boot: Disabling RNG early entropy source...[0m
+[0;32mI (268) hex_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (269) hex_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (269) hex_psram: DriveStr.    : 0x00 (25 Ohm)[0m
+[0;32mI (270) hex_psram: dev id       : 0x03 (generation 4)[0m
+[0;32mI (274) hex_psram: density      : 0x07 (256 Mbit)[0m
+[0;32mI (279) hex_psram: good-die     : 0x06 (Pass)[0m
+[0;32mI (283) hex_psram: SRF          : 0x02 (Slow Refresh)[0m
+[0;32mI (288) hex_psram: BurstType    : 0x00 ( Wrap)[0m
+[0;32mI (292) hex_psram: BurstLen     : 0x03 (2048 Byte)[0m
+[0;32mI (296) hex_psram: BitMode      : 0x01 (X16 Mode)[0m
+[0;32mI (301) hex_psram: Readlatency  : 0x04 (14 cycles@Fixed)[0m
+[0;32mI (306) hex_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (310) MSPI Timing: Enter psram timing tuning[0m
+[0;32mI (486) esp_psram: Found 32MB PSRAM device[0m
+[0;32mI (487) esp_psram: Speed: 200MHz[0m
+[0;32mI (489) hex_psram: psram CS IO is dedicated[0m
+[0;32mI (489) cpu_start: Multicore app[0m
+[0;32mI (1474) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (1483) cpu_start: GPIO 38 and 37 are used as console UART I/O pins[0m
+[0;32mI (1484) cpu_start: Pro cpu start user code[0m
+[0;32mI (1484) cpu_start: cpu freq: 360000000 Hz[0m
+[0;32mI (1486) app_init: Application information:[0m
+[0;32mI (1490) app_init: Project name:     DentalSystemS3[0m
+[0;32mI (1494) app_init: App version:      b6252c3-dirty[0m
+[0;32mI (1499) app_init: Compile time:     Apr 13 2026 14:05:15[0m
+[0;32mI (1504) app_init: ELF file SHA256:  edbe11955...[0m
+[0;32mI (1508) app_init: ESP-IDF:          v6.1-dev-3824-g484e56869c[0m
+[0;32mI (1514) efuse_init: Min chip rev:     v0.1[0m
+[0;32mI (1518) efuse_init: Max chip rev:     v1.99 [0m
+[0;32mI (1522) efuse_init: Chip rev:         v1.0[0m
+[0;32mI (1526) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (1532) heap_init: At 4FF18F50 len 00022070 (136 KiB): RETENT_RAM[0m
+[0;32mI (1538) heap_init: At 4FF3AFC0 len 00004BF0 (18 KiB): RAM[0m
+[0;32mI (1543) heap_init: At 4FF81E30 len 0001E1D0 (120 KiB): RAM[0m
+[0;32mI (1549) heap_init: At 501080A4 len 00007F5C (31 KiB): RTCRAM[0m
+[0;32mI (1554) heap_init: At 30100094 len 00001F6C (7 KiB): SPM[0m
+[0;32mI (1559) esp_psram: Adding pool of 32768K of PSRAM memory to heap allocator[0m
+[0;32mI (1567) spi_flash: detected chip: gd[0m
+[0;32mI (1569) spi_flash: flash io: dio[0m
+[0;33mW (1572) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (1585) host_init: ESP Hosted : Host chip_ip[18][0m
+[0;32mI (1589) H_API: ESP-Hosted starting. Hosted_Tasks: prio:23, stack: 5120 RPC_task_stack: 5120[0m
+[0;32mI (1597) H_API: ** add_esp_wifi_remote_channels **[0m
+[0;32mI (1603) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (1608) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (1615) sleep_clock: System sleep clock ICG setting initialization[0m
+[0;32mI (1621) H_SDIO_DRV: sdio_data_to_rx_buf_task started[0m
+[0;32mI (1621) main_task: Started on CPU0[0m
+[0;32mI (1631) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (1641) main_task: Calling app_main()[0m
+[0;32mI (1661) ESP32P4: Motor GPIOs (IN1/IN2) config: OK[0m
+[0;32mI (1661) ESP32P4: LEDC timer config: OK[0m
+[0;32mI (1661) ESP32P4: GPIO21 (ENA/PWM) LEDC channel: OK[0m
+[0;32mI (1661) ESP32P4: GPIO21 (ENA): 50% PWM for 5s - multimeter DC should show ~1.65V[0m
+[0;32mI (6661) ESP32P4: GPIO21 (ENA): PWM test done, duty=0[0m
+[0;32mI (6661) ESP32P4: Motor GPIOs initialized: IN1=0, IN2=1, ENA=0[0m

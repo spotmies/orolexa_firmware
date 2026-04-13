@@ -1,0 +1,2 @@
+/Users/tejasai/.espressif/tools/riscv32-esp-elf/esp-15.2.0_20251204/riscv32-esp-elf/bin/riscv32-esp-elf-ar qc libeverest.a CMakeFiles/everest.dir/library/everest.c.obj CMakeFiles/everest.dir/library/x25519.c.obj CMakeFiles/everest.dir/library/Hacl_Curve25519_joined.c.obj
+/Users/tejasai/.espressif/tools/riscv32-esp-elf/esp-15.2.0_20251204/riscv32-esp-elf/bin/riscv32-esp-elf-ranlib libeverest.a

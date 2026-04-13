@@ -680,6 +680,7 @@ int rpc_rsp_callback(ctrl_cmd_t * app_resp)
 	case RPC_ID__Resp_FeatureControl:
 	case RPC_ID__Resp_AppGetDesc:
 	case RPC_ID__Resp_MemMonitor:
+	case RPC_ID__Resp_WifiScanParams:
 #if H_WIFI_HE_SUPPORT
 	case RPC_ID__Resp_WifiStaTwtConfig:
 	case RPC_ID__Resp_WifiStaItwtSetup:
@@ -736,6 +737,9 @@ int rpc_rsp_callback(ctrl_cmd_t * app_resp)
 	case RPC_ID__Resp_GpioSetDirection:
 	case RPC_ID__Resp_GpioInputEnable:
 	case RPC_ID__Resp_GpioSetPullMode:
+#endif
+#if H_EXT_COEX_SUPPORT
+	case RPC_ID__Resp_ExtCoex:
 #endif
 
 	case RPC_ID__Resp_GetCoprocessorFwVersion:
@@ -901,6 +905,10 @@ int rpc_ota_activate(void)
 
 esp_err_t rpc_get_coprocessor_fwversion(esp_hosted_coprocessor_fwver_t *ver_info)
 {
+	if (!ver_info) {
+		return ESP_ERR_INVALID_ARG;
+	}
+
 	/* implemented synchronous */
 	ctrl_cmd_t *req = RPC_DEFAULT_REQ();
 	// change timeout value for this call
@@ -909,9 +917,46 @@ esp_err_t rpc_get_coprocessor_fwversion(esp_hosted_coprocessor_fwver_t *ver_info
 
 	resp = rpc_slaveif_get_coprocessor_fwversion(req);
 	if (resp && resp->resp_event_status == SUCCESS) {
-		ver_info->major1 = resp->u.coprocessor_fwversion.major1;
-		ver_info->minor1 = resp->u.coprocessor_fwversion.minor1;
-		ver_info->patch1 = resp->u.coprocessor_fwversion.patch1;
+		ver_info->major1     = resp->u.coprocessor_fwversion.major1;
+		ver_info->minor1     = resp->u.coprocessor_fwversion.minor1;
+		ver_info->patch1     = resp->u.coprocessor_fwversion.patch1;
+		ver_info->revision   = resp->u.coprocessor_fwversion.revision;
+		ver_info->prerelease = resp->u.coprocessor_fwversion.prerelease;
+		ver_info->build      = resp->u.coprocessor_fwversion.build;
+	}
+
+	return rpc_rsp_callback(resp);
+}
+
+esp_err_t rpc_get_cp_info(uint32_t *cp_chip_id, char *cp_target_name, size_t cp_target_name_len)
+{
+	// allow caller to get the chip_id or target_name or both
+	if (!cp_chip_id && !cp_target_name) {
+		return ESP_ERR_INVALID_ARG;
+	}
+
+	/* implemented synchronous */
+	ctrl_cmd_t *req = RPC_DEFAULT_REQ();
+	// change timeout value for this call
+	req->rsp_timeout_sec = GET_FWVERSION_TIMEOUT_SEC;
+	ctrl_cmd_t *resp = NULL;
+
+	resp = rpc_slaveif_get_coprocessor_fwversion(req);
+	if (resp && resp->resp_event_status == SUCCESS) {
+		if (cp_chip_id) {
+			// caller wants chip_id
+			*cp_chip_id = resp->u.coprocessor_fwversion.chip_id;
+		}
+		if (cp_target_name && cp_target_name_len) {
+			// caller wants target_name
+			size_t name_len = strlen(resp->u.coprocessor_fwversion.idf_target) + 1;
+			if (name_len <= cp_target_name_len) {
+				g_h.funcs->_h_memcpy(cp_target_name, resp->u.coprocessor_fwversion.idf_target, name_len);
+			} else {
+				ESP_LOGE(TAG, "Buffer is too small to hold Co-processor Name: should be at least %"PRIu16 " bytes", name_len);
+				resp->resp_event_status = ESP_ERR_INVALID_SIZE;
+			}
+		}
 	}
 
 	return rpc_rsp_callback(resp);
@@ -1374,6 +1419,43 @@ int rpc_wifi_get_config(wifi_interface_t interface, wifi_config_t *conf)
 	return rpc_rsp_callback(resp);
 }
 
+int rpc_wifi_set_scan_parameters(const wifi_scan_default_params_t *config)
+{
+	/* implemented synchronous */
+	ctrl_cmd_t *req = RPC_DEFAULT_REQ();
+	ctrl_cmd_t *resp = NULL;
+
+	req->u.wifi_scan_params.cmd = RPC_CMD__Set;
+	if (config) {
+		g_h.funcs->_h_memcpy(&req->u.wifi_scan_params.config, config, sizeof(rpc_wifi_scan_default_params_t));
+		req->u.wifi_scan_params.is_config_null = false;
+	} else {
+		req->u.wifi_scan_params.is_config_null = true;
+	}
+
+	resp = rpc_slaveif_wifi_scan_params(req);
+	return rpc_rsp_callback(resp);
+}
+
+int rpc_wifi_get_scan_parameters(wifi_scan_default_params_t *config)
+{
+	/* implemented synchronous */
+	ctrl_cmd_t *req = RPC_DEFAULT_REQ();
+	ctrl_cmd_t *resp = NULL;
+
+	if (!config)
+		return FAILURE;
+
+	req->u.wifi_scan_params.cmd = RPC_CMD__Get;
+	resp = rpc_slaveif_wifi_scan_params(req);
+
+	if (resp && resp->resp_event_status == SUCCESS) {
+		g_h.funcs->_h_memcpy(config, &resp->u.wifi_scan_params.config, sizeof(rpc_wifi_scan_default_params_t));
+	}
+
+	return rpc_rsp_callback(resp);
+}
+
 int rpc_wifi_scan_start(const wifi_scan_config_t *config, bool block)
 {
 	/* implemented synchronous */
@@ -1454,7 +1536,7 @@ int rpc_wifi_scan_get_ap_records(uint16_t *number, wifi_ap_record_t *ap_records)
 	resp = rpc_slaveif_wifi_scan_get_ap_records(req);
 	if (resp && resp->resp_event_status == SUCCESS) {
 		ESP_LOGV(TAG, "num: %u",resp->u.wifi_scan_ap_list.number);
-
+		*number = resp->u.wifi_scan_ap_list.number;
 		g_h.funcs->_h_memcpy(ap_records, resp->u.wifi_scan_ap_list.out_list,
 				resp->u.wifi_scan_ap_list.number * sizeof(wifi_ap_record_t));
 	}
@@ -2611,4 +2693,73 @@ esp_err_t esp_hosted_cp_gpio_set_pull_mode(uint32_t gpio_num, uint32_t pull_mode
 	resp = rpc_slaveif_gpio_set_pull_mode(req);
 	return rpc_rsp_callback(resp);
 }
+#endif
+
+#if H_EXT_COEX_SUPPORT
+
+esp_err_t esp_hosted_cp_ext_coex_set_work_mode(esp_hosted_ext_coex_work_mode_t work_mode)
+{
+	ctrl_cmd_t *req = RPC_DEFAULT_REQ();
+	ctrl_cmd_t *resp = NULL;
+
+	req->u.ext_coex.cmd = RPC__EXT_COEX_CMD__SetWorkMode;
+	req->u.ext_coex.set_work_mode = (uint32_t)work_mode;
+	resp = rpc_slaveif_ext_coex(req);
+	return rpc_rsp_callback(resp);
+}
+
+esp_err_t esp_hosted_cp_ext_coex_set_gpio_pin(uint32_t wire_type,
+		const esp_hosted_ext_coex_gpio_set_t *gpio_pins)
+{
+	ctrl_cmd_t *req = RPC_DEFAULT_REQ();
+	ctrl_cmd_t *resp = NULL;
+
+	if (!gpio_pins || wire_type > ESP_HOSTED_EXT_COEX_WIRE_4)
+		return ESP_ERR_INVALID_ARG;
+
+	req->u.ext_coex.cmd = RPC__EXT_COEX_CMD__SetGpioPin;
+	req->u.ext_coex.set_gpio_wire_type = wire_type;
+	req->u.ext_coex.set_gpio_request_pin = gpio_pins->request;
+	req->u.ext_coex.set_gpio_priority_pin = gpio_pins->priority;
+	req->u.ext_coex.set_gpio_grant_pin = gpio_pins->grant;
+	req->u.ext_coex.set_gpio_tx_line_pin = gpio_pins->tx_line;
+
+	resp = rpc_slaveif_ext_coex(req);
+	return rpc_rsp_callback(resp);
+}
+
+#if H_EXT_COEX_ADVANCE_SUPPORT
+esp_err_t esp_hosted_cp_ext_coex_set_grant_delay(uint8_t delay_us)
+{
+	ctrl_cmd_t *req = RPC_DEFAULT_REQ();
+	ctrl_cmd_t *resp = NULL;
+
+	req->u.ext_coex.cmd = RPC__EXT_COEX_CMD__SetGrantDelay;
+	req->u.ext_coex.set_grant_delay_us = delay_us;
+	resp = rpc_slaveif_ext_coex(req);
+	return rpc_rsp_callback(resp);
+}
+
+esp_err_t esp_hosted_cp_ext_coex_set_validate_high(bool is_high_valid)
+{
+	ctrl_cmd_t *req = RPC_DEFAULT_REQ();
+	ctrl_cmd_t *resp = NULL;
+
+	req->u.ext_coex.cmd = RPC__EXT_COEX_CMD__SetValidateHigh;
+	req->u.ext_coex.set_validate_high = is_high_valid;
+	resp = rpc_slaveif_ext_coex(req);
+	return rpc_rsp_callback(resp);
+}
+#endif
+
+esp_err_t esp_hosted_cp_ext_coex_disable(void)
+{
+	ctrl_cmd_t *req = RPC_DEFAULT_REQ();
+	ctrl_cmd_t *resp = NULL;
+
+	req->u.ext_coex.cmd = RPC__EXT_COEX_CMD__Disable;
+	resp = rpc_slaveif_ext_coex(req);
+	return rpc_rsp_callback(resp);
+}
+
 #endif

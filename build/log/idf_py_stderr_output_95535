@@ -1,0 +1,9 @@
+Command: make -j 12 all
+/Users/tejasai/Downloads/orolexa/DentalS3/main/main.c:24:10: fatal error: driver/gpio.h: No such file or directory
+   24 | #include "driver/gpio.h"
+      |          ^~~~~~~~~~~~~~~
+compilation terminated.
+make[2]: *** [esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj] Error 1
+make[1]: *** [esp-idf/main/CMakeFiles/__idf_main.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make: *** [all] Error 2

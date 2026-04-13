@@ -1,0 +1,34 @@
+esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_print.c.obj: \
+ /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_rom/patches/esp_rom_print.c \
+ /Users/tejasai/.espressif/tools/riscv32-esp-elf/esp-15.2.0_20251204/riscv32-esp-elf/lib/gcc/riscv32-esp-elf/15.2.0/include/stdint.h \
+ /Users/tejasai/.espressif/tools/riscv32-esp-elf/esp-15.2.0_20251204/riscv32-esp-elf/riscv32-esp-elf/include/stdint.h \
+ /Users/tejasai/.espressif/tools/riscv32-esp-elf/esp-15.2.0_20251204/riscv32-esp-elf/riscv32-esp-elf/include/machine/_default_types.h \
+ /Users/tejasai/.espressif/tools/riscv32-esp-elf/esp-15.2.0_20251204/riscv32-esp-elf/riscv32-esp-elf/include/sys/features.h \
+ /Users/tejasai/.espressif/tools/riscv32-esp-elf/esp-15.2.0_20251204/riscv32-esp-elf/riscv32-esp-elf/include/_newlib_version.h \
+ /Users/tejasai/.espressif/tools/riscv32-esp-elf/esp-15.2.0_20251204/riscv32-esp-elf/riscv32-esp-elf/include/sys/_intsup.h \
+ /Users/tejasai/.espressif/tools/riscv32-esp-elf/esp-15.2.0_20251204/riscv32-esp-elf/riscv32-esp-elf/include/sys/_stdint.h \
+ /Users/tejasai/.espressif/tools/riscv32-esp-elf/esp-15.2.0_20251204/riscv32-esp-elf/lib/gcc/riscv32-esp-elf/15.2.0/include/stdbool.h \
+ /Users/tejasai/.espressif/tools/riscv32-esp-elf/esp-15.2.0_20251204/riscv32-esp-elf/lib/gcc/riscv32-esp-elf/15.2.0/include/stdarg.h \
+ /Users/tejasai/.espressif/tools/riscv32-esp-elf/esp-15.2.0_20251204/riscv32-esp-elf/lib/gcc/riscv32-esp-elf/15.2.0/include/stddef.h \
+ /Users/tejasai/.espressif/tools/riscv32-esp-elf/esp-15.2.0_20251204/riscv32-esp-elf/riscv32-esp-elf/include/sys/param.h \
+ /Users/tejasai/.espressif/tools/riscv32-esp-elf/esp-15.2.0_20251204/riscv32-esp-elf/riscv32-esp-elf/include/sys/config.h \
+ /Users/tejasai/.espressif/tools/riscv32-esp-elf/esp-15.2.0_20251204/riscv32-esp-elf/riscv32-esp-elf/include/machine/ieeefp.h \
+ /Users/tejasai/.espressif/tools/riscv32-esp-elf/esp-15.2.0_20251204/riscv32-esp-elf/riscv32-esp-elf/include/sys/syslimits.h \
+ /Users/tejasai/.espressif/tools/riscv32-esp-elf/esp-15.2.0_20251204/riscv32-esp-elf/riscv32-esp-elf/include/machine/endian.h \
+ /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_libc/platform_include/sys/cdefs.h \
+ /Users/tejasai/.espressif/tools/riscv32-esp-elf/esp-15.2.0_20251204/riscv32-esp-elf/riscv32-esp-elf/include/sys/cdefs.h \
+ /Users/tejasai/Downloads/orolexa/DentalS3/build/bootloader/config/sdkconfig.h \
+ /Users/tejasai/.espressif/tools/riscv32-esp-elf/esp-15.2.0_20251204/riscv32-esp-elf/riscv32-esp-elf/include/sys/_types.h \
+ /Users/tejasai/.espressif/tools/riscv32-esp-elf/esp-15.2.0_20251204/riscv32-esp-elf/riscv32-esp-elf/include/newlib.h \
+ /Users/tejasai/.espressif/tools/riscv32-esp-elf/esp-15.2.0_20251204/riscv32-esp-elf/riscv32-esp-elf/include/machine/_types.h \
+ /Users/tejasai/.espressif/tools/riscv32-esp-elf/esp-15.2.0_20251204/riscv32-esp-elf/riscv32-esp-elf/include/machine/_endian.h \
+ /Users/tejasai/.espressif/tools/riscv32-esp-elf/esp-15.2.0_20251204/riscv32-esp-elf/riscv32-esp-elf/include/machine/param.h \
+ /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_rom/esp32p4/esp_rom_caps.h \
+ /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_rom/include/esp_rom_sys.h \
+ /Users/tejasai/.espressif/tools/riscv32-esp-elf/esp-15.2.0_20251204/riscv32-esp-elf/riscv32-esp-elf/include/inttypes.h \
+ /Users/tejasai/.espressif/tools/riscv32-esp-elf/esp-15.2.0_20251204/riscv32-esp-elf/riscv32-esp-elf/include/_ansi.h \
+ /Users/tejasai/.espressif/tools/riscv32-esp-elf/esp-15.2.0_20251204/riscv32-esp-elf/riscv32-esp-elf/include/sys/_locale.h \
+ /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/soc/esp32p4/include/soc/reset_reasons.h \
+ /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/soc/esp32p4/include/soc/soc_caps.h \
+ /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/soc/include/soc/soc_caps_eval.h \
+ /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_rom/esp32p4/include/esp32p4/rom/ets_sys.h

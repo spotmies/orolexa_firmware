@@ -30,6 +30,9 @@ extern "C" {
 #if H_GPIO_EXPANDER_SUPPORT
 #include "esp_hosted_cp_gpio.h"
 #endif
+#if H_EXT_COEX_SUPPORT
+#include "esp_hosted_cp_ext_coex.h"
+#endif
 /** Exported variables **/
 
 /** Inline functions **/
@@ -54,6 +57,8 @@ esp_err_t rpc_wifi_set_config(wifi_interface_t interface, wifi_config_t *conf);
 esp_err_t rpc_wifi_get_config(wifi_interface_t interface, wifi_config_t *conf);
 esp_err_t rpc_wifi_get_mac(wifi_interface_t mode, uint8_t mac[6]);
 esp_err_t rpc_wifi_set_mac(wifi_interface_t mode, const uint8_t mac[6]);
+esp_err_t rpc_wifi_set_scan_parameters(const wifi_scan_default_params_t *config);
+esp_err_t rpc_wifi_get_scan_parameters(wifi_scan_default_params_t *config);
 
 esp_err_t rpc_wifi_scan_start(const wifi_scan_config_t *config, bool block);
 esp_err_t rpc_wifi_scan_stop(void);
@@ -88,6 +93,7 @@ esp_err_t rpc_wifi_sta_get_aid(uint16_t *aid);
 esp_err_t rpc_wifi_set_inactive_time(wifi_interface_t ifx, uint16_t sec);
 esp_err_t rpc_wifi_get_inactive_time(wifi_interface_t ifx, uint16_t *sec);
 esp_err_t rpc_get_coprocessor_fwversion(esp_hosted_coprocessor_fwver_t *ver_info);
+esp_err_t rpc_get_cp_info(uint32_t *cp_chip_id, char *cp_target_name, size_t cp_target_name_len);
 
 esp_err_t rpc_bt_controller_init(void);
 esp_err_t rpc_bt_controller_deinit(bool mem_release);

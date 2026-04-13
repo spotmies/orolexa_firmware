@@ -1,0 +1,2 @@
+/Users/tejasai/.espressif/tools/riscv32-esp-elf/esp-15.2.0_20251204/riscv32-esp-elf/bin/riscv32-esp-elf-ar qc libesp_hal_i2s.a CMakeFiles/__idf_esp_hal_i2s.dir/i2s_hal.c.obj CMakeFiles/__idf_esp_hal_i2s.dir/esp32p4/i2s_periph.c.obj CMakeFiles/__idf_esp_hal_i2s.dir/lp_i2s_hal.c.obj
+/Users/tejasai/.espressif/tools/riscv32-esp-elf/esp-15.2.0_20251204/riscv32-esp-elf/bin/riscv32-esp-elf-ranlib libesp_hal_i2s.a

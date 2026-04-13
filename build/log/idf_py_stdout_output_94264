@@ -1,0 +1,50 @@
+Command: make -j 12 all
+[  0%] Built target _project_elf_src
+[  0%] Built target memory_ld_in_preprocess
+[  0%] Built target sections_ld_in_preprocess
+[  0%] Built target partition_table_bin
+[  0%] Built target custom_bundle
+[  0%] Performing build step for 'bootloader'
+[  0%] Building C object esp-idf/espressif__esp_wifi_remote/CMakeFiles/__idf_espressif__esp_wifi_remote.dir/__/__/.espressif/esp-idf/components/esp_wifi/remote/esp_wifi_with_remote.c.obj
+[  0%] Built target bootloader_sections_ld_in_preprocess
+[  1%] Built target _project_elf_src
+[  2%] Built target bootloader_memory_ld_in_preprocess
+[  8%] Built target __idf_log
+[ 13%] Built target __idf_esp_rom
+[ 15%] Built target __idf_esp_common
+[ 22%] Built target __idf_esp_hw_support
+[ 25%] Built target __idf_esp_hal_cam
+[ 26%] Built target __idf_esp_system
+[ 27%] Built target __idf_esp_hal_systimer
+[ 32%] Built target __idf_efuse
+[ 45%] Built target __idf_bootloader_support
+[ 48%] Built target __idf_esp_security
+[ 51%] Built target __idf_esp_hal_security
+[ 55%] Built target __idf_esp_hal_ana_conv
+[ 58%] Built target __idf_esp_hal_uart
+[ 59%] Built target __idf_esp_hal_wdt
+[ 60%] Built target __idf_esp_hal_timg
+[ 61%] Built target __idf_micro-ecc
+[ 62%] Built target __idf_esp_bootloader_format
+[ 63%] Built target __idf_spi_flash
+[ 64%] Built target __idf_esp_hal_mspi
+[ 66%] Built target __idf_esp_hal_clock
+[ 70%] Built target __idf_esp_hal_gpspi
+[ 75%] Built target __idf_esp_hal_dma
+[ 76%] Built target __idf_esp_hal_regi2c
+[ 79%] Built target __idf_esp_hal_pmu
+[ 83%] Built target __idf_esp_hal_usb
+[ 87%] Built target __idf_esp_hal_gpio
+[ 92%] Built target __idf_soc
+[ 93%] Built target __idf_riscv
+[ 96%] Built target __idf_hal
+[ 97%] Built target __idf_main
+[ 98%] Built target bootloader.elf
+[100%] Built target gen_bootloader_binary
+[100%] Built target gen_project_binary
+Bootloader binary size 0x5910 bytes. 0x6f0 bytes (7%) free.
+[100%] Built target bootloader_check_size
+[100%] Built target app
+[  0%] No install step for 'bootloader'
+[  0%] Completed 'bootloader'
+[  0%] Built target bootloader

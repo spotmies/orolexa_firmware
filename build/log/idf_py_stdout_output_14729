@@ -1,0 +1,195 @@
+Command: /Users/tejasai/.espressif/python_env/idf6.1_py3.14_env/bin/python /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/tools/idf_monitor.py -p /dev/cu.usbmodem5AAF2857331 -b 115200 --toolchain-prefix riscv32-esp-elf- --target esp32p4 --revision 1 --decode-panic backtrace /Users/tejasai/Downloads/orolexa/DentalS3/build/DentalSystemS3.elf /Users/tejasai/Downloads/orolexa/DentalS3/build/bootloader/bootloader.elf -m '/Users/tejasai/.espressif/python_env/idf6.1_py3.14_env/bin/python' '/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/tools/idf.py' '-p' '/dev/cu.usbmodem5AAF2857331'
+ESP-ROM:esp32p4-eco2-20240710
+Build:Jul 10 2024
+rst:0x1 (POWERON),boot:0x30f (SPI_FAST_FLASH_BOOT)
+SPI mode:DIO, clock div:1
+load:0x4ff33ce0,len:0x1524
+load:0x4ff29ed0,len:0xe44
+load:0x4ff2cbd0,len:0x3548
+entry 0x4ff29eda
+[0;32mI (25) boot: ESP-IDF v6.1-dev-3824-g484e56869c 2nd stage bootloader[0m
+[0;32mI (26) boot: compile time Apr 13 2026 14:01:41[0m
+[0;32mI (26) boot: Multicore bootloader[0m
+[0;32mI (29) boot: chip revision: v1.0[0m
+[0;32mI (30) boot: efuse block revision: v0.3[0m
+[0;32mI (34) boot.esp32p4: SPI Speed      : 80MHz[0m
+[0;32mI (38) boot.esp32p4: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32p4: SPI Flash Size : 2MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (50) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (59) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (72) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (79) boot: End of partition table[0m
+[0;32mI (82) esp_image: segment 0: paddr=00010020 vaddr=40090020 size=3c9c8h (248264) map[0m
+[0;32mI (133) esp_image: segment 1: paddr=0004c9f0 vaddr=30100000 size=00094h (   148) load[0m
+[0;32mI (135) esp_image: segment 2: paddr=0004ca8c vaddr=4ff00000 size=0358ch ( 13708) load[0m
+[0;32mI (141) esp_image: segment 3: paddr=00050020 vaddr=40000020 size=8aa1ch (567836) map[0m
+[0;32mI (243) esp_image: segment 4: paddr=000daa44 vaddr=4ff0358c size=10dcch ( 69068) load[0m
+[0;32mI (258) esp_image: segment 5: paddr=000eb818 vaddr=4ff14380 size=036e0h ( 14048) load[0m
+[0;32mI (262) esp_image: segment 6: paddr=000eef00 vaddr=50108080 size=00024h (    36) load[0m
+[0;32mI (268) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (268) boot: Disabling RNG early entropy source...[0m
+[0;32mI (286) hex_psram: vendor id    : 0x0d (AP)[0m
+[0;32mI (286) hex_psram: Latency      : 0x01 (Fixed)[0m
+[0;32mI (286) hex_psram: DriveStr.    : 0x00 (25 Ohm)[0m
+[0;32mI (287) hex_psram: dev id       : 0x03 (generation 4)[0m
+[0;32mI (292) hex_psram: density      : 0x07 (256 Mbit)[0m
+[0;32mI (296) hex_psram: good-die     : 0x06 (Pass)[0m
+[0;32mI (300) hex_psram: SRF          : 0x02 (Slow Refresh)[0m
+[0;32mI (305) hex_psram: BurstType    : 0x00 ( Wrap)[0m
+[0;32mI (309) hex_psram: BurstLen     : 0x03 (2048 Byte)[0m
+[0;32mI (314) hex_psram: BitMode      : 0x01 (X16 Mode)[0m
+[0;32mI (318) hex_psram: Readlatency  : 0x04 (14 cycles@Fixed)[0m
+[0;32mI (323) hex_psram: DriveStrength: 0x00 (1/1)[0m
+[0;32mI (327) MSPI Timing: Enter psram timing tuning[0m
+[0;32mI (504) esp_psram: Found 32MB PSRAM device[0m
+[0;32mI (504) esp_psram: Speed: 200MHz[0m
+[0;32mI (505) hex_psram: psram CS IO is dedicated[0m
+[0;32mI (506) cpu_start: Multicore app[0m
+[0;32mI (1490) esp_psram: SPI SRAM memory test OK[0m
+[0;32mI (1500) cpu_start: GPIO 38 and 37 are used as console UART I/O pins[0m
+[0;32mI (1500) cpu_start: Pro cpu start user code[0m
+[0;32mI (1500) cpu_start: cpu freq: 360000000 Hz[0m
+[0;32mI (1502) app_init: Application information:[0m
+[0;32mI (1506) app_init: Project name:     DentalSystemS3[0m
+[0;32mI (1511) app_init: App version:      b6252c3-dirty[0m
+[0;32mI (1515) app_init: Compile time:     Apr 13 2026 14:05:15[0m
+[0;32mI (1520) app_init: ELF file SHA256:  e0437c52a...[0m
+[0;32mI (1525) app_init: ESP-IDF:          v6.1-dev-3824-g484e56869c[0m
+[0;32mI (1530) efuse_init: Min chip rev:     v0.1[0m
+[0;32mI (1534) efuse_init: Max chip rev:     v1.99 [0m
+[0;32mI (1538) efuse_init: Chip rev:         v1.0[0m
+[0;32mI (1542) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (1549) heap_init: At 4FF18F50 len 00022070 (136 KiB): RETENT_RAM[0m
+[0;32mI (1554) heap_init: At 4FF3AFC0 len 00004BF0 (18 KiB): RAM[0m
+[0;32mI (1560) heap_init: At 4FF81E30 len 0001E1D0 (120 KiB): RAM[0m
+[0;32mI (1565) heap_init: At 501080A4 len 00007F5C (31 KiB): RTCRAM[0m
+[0;32mI (1570) heap_init: At 30100094 len 00001F6C (7 KiB): SPM[0m
+[0;32mI (1576) esp_psram: Adding pool of 32768K of PSRAM memory to heap allocator[0m
+[0;32mI (1583) spi_flash: detected chip: gd[0m
+[0;32mI (1586) spi_flash: flash io: dio[0m
+[0;33mW (1589) spi_flash: Detected size(16384k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (1601) host_init: ESP Hosted : Host chip_ip[18][0m
+[0;32mI (1606) H_API: ESP-Hosted starting. Hosted_Tasks: prio:23, stack: 5120 RPC_task_stack: 5120[0m
+[0;32mI (1614) H_API: ** add_esp_wifi_remote_channels **[0m
+[0;32mI (1620) sleep_gpio: Configure to isolate all GPIO pins in sleep state[0m
+[0;32mI (1625) sleep_gpio: Enable automatic switching of GPIO sleep configuration[0m
+[0;32mI (1632) sleep_clock: System sleep clock ICG setting initialization[0m
+[0;32mI (1638) H_SDIO_DRV: sdio_data_to_rx_buf_task started[0m
+[0;32mI (1638) main_task: Started on CPU0[0m
+[0;32mI (1648) esp_psram: Reserving pool of 32K of internal memory for DMA/internal allocations[0m
+[0;32mI (1658) main_task: Calling app_main()[0m
+[0;32mI (1678) ESP32P4: Motor GPIOs (IN1/IN2) config: OK[0m
+[0;32mI (1678) ESP32P4: LEDC timer config: OK[0m
+[0;32mI (1678) ESP32P4: GPIO21 (ENA/PWM) LEDC channel: OK[0m
+[0;32mI (1678) ESP32P4: GPIO21 (ENA): 50% PWM for 5s - multimeter DC should show ~1.65V[0m
+[0;32mI (6678) ESP32P4: GPIO21 (ENA): PWM test done, duty=0[0m
+[0;32mI (6678) ESP32P4: Motor GPIOs initialized: IN1=0, IN2=1, ENA=0[0m
+[0;32mI (7678) ESP32P4: === MOTOR GPIO TEST ===[0m
+[0;32mI (7678) ESP32P4: Testing GPIO32 (IN1): Setting HIGH[0m
+[0;32mI (8178) ESP32P4: GPIO32 (IN1) read back: 0 (expected: 1)[0m
+[0;32mI (8178) ESP32P4: Testing GPIO32 (IN1): Setting LOW[0m
+[0;32mI (8678) ESP32P4: GPIO32 (IN1) read back: 0 (expected: 0)[0m
+[0;32mI (8678) ESP32P4: Testing GPIO33 (IN2): Setting HIGH[0m
+[0;32mI (9178) ESP32P4: GPIO33 (IN2) read back: 0 (expected: 1)[0m
+[0;32mI (9178) ESP32P4: Testing GPIO33 (IN2): Setting LOW[0m
+[0;32mI (9678) ESP32P4: GPIO33 (IN2) read back: 0 (expected: 0)[0m
+[0;32mI (9678) ESP32P4: Testing GPIO21 (ENA): Setting PWM duty=2048[0m
+[0;32mI (10178) ESP32P4: GPIO21 (ENA) PWM duty read back: 2048 (expected: 2048)[0m
+[0;32mI (10178) ESP32P4: Testing GPIO21 (ENA): Setting PWM duty=0[0m
+[0;32mI (10678) ESP32P4: GPIO21 (ENA) PWM duty read back: 0 (expected: 0)[0m
+[0;32mI (10678) ESP32P4: === MOTOR GPIO TEST COMPLETE ===[0m
+[1;31mE (10678) ESP32P4: MPU wake command failed: ESP_ERR_INVALID_RESPONSE[0m
+[0;32mI (10708) transport: Attempt connection with slave: retry[0][0m
+[0;33mW (10708) H_SDIO_DRV: Reset slave using GPIO[54][0m
+[0;32mI (10708) os_wrapper_esp: GPIO [54] configured[0m
+[0;32mI (10708) ESP32P4: SYSTEM READY[0m
+[0;32mI (10708) ESP32P4: 2-button: Pressure=GPIO6, Multi=GPIO4 (Camera: capture | Motor: Off→50%→80%→100%→Off)[0m
+[0;32mI (10718) ESP32P4: Motor GPIOs: ENA=GPIO21, IN1=GPIO32, IN2=GPIO33[0m
+[0;32mI (10728) main_task: Returned from app_main()[0m
+[0;32mI (12228) sdio_wrapper: SDIO master: Slot 1, Data-Lines: 4-bit Freq(KHz)[40000 KHz][0m
+[0;32mI (12228) sdio_wrapper: GPIOs: CLK[18] CMD[19] D0[14] D1[15] D2[16] D3[17] Slave_Reset[54][0m
+[0;32mI (12228) sdio_wrapper: Queues: Tx[20] Rx[20] SDIO-Rx-Mode[1][0m
+[0;32mI (12268) sdio_wrapper: Function 0 Blocksize: 512[0m
+[0;32mI (12268) sdio_wrapper: Function 1 Blocksize: 512[0m
+[0;32mI (12368) H_SDIO_DRV: Card init success, TRANSPORT_RX_ACTIVE[0m
+[0;32mI (12368) transport: set_transport_state: 1[0m
+[0;32mI (12368) transport: Waiting for esp_hosted slave to be ready[0m
+[0;32mI (12438) H_SDIO_DRV: SDIO Host operating in STREAMING MODE[0m
+[0;32mI (12438) H_SDIO_DRV: Open data path at slave[0m
+[0;32mI (12438) H_SDIO_DRV: Starting SDIO process rx task[0m
+[0;32mI (12438) H_SDIO_DRV: Received ESP_PRIV_IF type message[0m
+[0;32mI (12438) transport: Received INIT event from ESP32 peripheral[0m
+[0;32mI (12448) transport: EVENT: 12[0m
+[0;32mI (12448) transport: Identified slave [esp32c6][0m
+[0;32mI (12458) transport: EVENT: 11[0m
+[0;32mI (12458) transport: capabilities: 0xd[0m
+[0;32mI (12458) transport: Features supported are:[0m
+[0;32mI (12468) transport: 	 * WLAN[0m
+[0;32mI (12468) transport: 	   - HCI over SDIO[0m
+[0;32mI (12468) transport: 	   - BLE only[0m
+[0;32mI (12478) transport: EVENT: 13[0m
+[0;33mW (12478) transport: Version mismatch: Host [2.12.0] > Co-proc [0.0.0] ==> Upgrade co-proc to avoid RPC timeouts[0m
+[0;32mI (12488) transport: ESP board type is : 13 [0m
+
+[0;32mI (12488) transport: Base transport is set-up, TRANSPORT_TX_ACTIVE[0m
+[0;32mI (12498) H_API: Transport active[0m
+[0;32mI (12498) transport: Slave chip Id[12][0m
+[0;32mI (12498) transport: raw_tp_dir[-], flow_ctrl: low[60] high[80][0m
+[0;32mI (12508) transport: transport_delayed_init[0m
+[0;32mI (12508) esp_cli: Registering command: crash[0m
+[0;32mI (12518) esp_cli: Registering command: reboot[0m
+[0;32mI (12518) esp_cli: Registering command: mem-dump[0m
+[0;32mI (12528) esp_cli: Registering command: task-dump[0m
+[0;32mI (12528) esp_cli: Registering command: cpu-dump[0m
+[0;32mI (12538) esp_cli: Registering command: heap-trace[0m
+[0;32mI (12538) esp_cli: Registering command: sock-dump[0m
+[0;32mI (12538) esp_cli: Registering command: host-power-save[0m
+[0;32mI (12548) hci_stub_drv: Host BT Support: Disabled[0m
+[0;32mI (12548) H_SDIO_DRV: Received INIT event[0m
+[0;32mI (12558) H_SDIO_DRV: Event type: 0x22[0m
+[0;32mI (12558) H_SDIO_DRV: Write thread started[0m
+[0;32mI (12638) RPC_WRAP: Coprocessor Boot-up[0m
+[0;32mI (12748) ESP32P4: Saved WiFi found: vardhan, connecting (Boot long-press to re-provision)[0m
+[0;32mI (12868) H_API: esp_wifi_remote_connect[0m
+[0;32mI (12898) RPC_WRAP: ESP Event: wifi station started[0m
+[0;33mW (13908) rpc_rsp: Hosted RPC_Resp [0x21a], uid [6], resp code [12295][0m
+[0;32mI (15298) RPC_WRAP: ESP Event: Station mode: Disconnected[0m
+[0;32mI (15498) RPC_WRAP: ESP Event: wifi station stopped[0m
+[0;32mI (15628) RPC_WRAP: ESP Event: softap started[0m
+[0;32mI (15638) esp_netif_lwip: DHCP server started on interface WIFI_AP_DEF with IP: 192.168.4.1[0m
+[0;32mI (34568) RPC_WRAP: ESP Event: SoftAP mode: station connected with MAC Addr be:2e:22:c5:59:59[0m
+[0;32mI (34988) esp_netif_lwip: DHCP server assigned IP to a client, IP is: 192.168.4.2[0m
+[0;33mW (49098) httpd_uri: httpd_uri: URI '/favicon.ico' not found[0m
+[0;33mW (49108) httpd_txrx: httpd_resp_send_err: 404 Not Found - Nothing matches the given URI[0m
+[0;32mI (64288) ESP32P4: WiFi credentials saved to NVS (use Boot long-press to re-provision)[0m
+[0;32mI (64288) ESP32P4: Provisioning received: SSID=Teja, will switch to STA after 12 s[0m
+[0;32mI (64518) ESP32P4: Provisioning complete. Waiting 12 seconds before connecting to Teja...[0m
+[0;32mI (66068) RPC_WRAP: ESP Event: SoftAP mode: disconnected station[0m
+[0;32mI (76518) ESP32P4: Connecting to WiFi: Teja[0m
+[0;32mI (76538) RPC_WRAP: ESP Event: softap stopped[0m
+[0;32mI (76658) H_API: esp_wifi_remote_connect[0m
+[0;32mI (76658) RPC_WRAP: ESP Event: wifi station started[0m
+[0;33mW (77668) rpc_rsp: Hosted RPC_Resp [0x21a], uid [18], resp code [12295][0m
+[0;32mI (79618) RPC_WRAP: ESP Event: Station mode: Connected[0m
+[0;32mI (79618) esp_wifi_remote: esp_wifi_internal_reg_rxcb: sta: 0x400717be[0m
+[0;32mI (80638) esp_netif_handlers: sta ip: 10.59.156.141, mask: 255.255.255.0, gw: 10.59.156.151[0m
+[0;32mI (80638) mdns_mem: mDNS task will be created from internal RAM[0m
+[0;32mI (80638) ESP32P4: mDNS: dentals3.local:81 (discoverable by apps)[0m
+[0;32mI (80638) ESP32P4: Camera stream: http://10.59.156.141:81/stream[0m
+[0;33mW (100038) uvc-isoc: missed EoF[0m
+[0;33mW (103658) uvc-isoc: missed EoF[0m
+[0;33mW (104548) uvc-isoc: missed EoF[0m
+[0;33mW (105308) uvc-isoc: missed EoF[0m
+[0;33mW (105348) uvc-isoc: missed EoF[0m
+[0;33mW (105388) uvc-isoc: missed EoF[0m
+[1;31mE (105578) USB HOST: Enqueue URB error: ESP_ERR_INVALID_STATE[0m
+[1;31mE (105578) USB HOST: Enqueue URB error: ESP_ERR_INVALID_STATE[0m
+[1;31mE (105578) USB HOST: Enqueue URB error: ESP_ERR_INVALID_STATE[0m
+[0;33mW (105778) httpd_uri: httpd_uri: URI '/favicon.ico' not found[0m
+[0;33mW (105778) httpd_txrx: httpd_resp_send_err: 404 Not Found - Nothing matches the given URI[0m
+[1;31mE (106158) USB HOST: Submit CTRL URB error: ESP_ERR_INVALID_STATE[0m
+[1;31mE (106158) uvc: uvc_host_usb_ctrl(1140): CTRL transfer failed[0m
+[0;32mI (106158) ESP32P4: USB camera disconnected, waiting 15 s before retry[0m

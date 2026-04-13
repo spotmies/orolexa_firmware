@@ -10,6 +10,8 @@
     - python tools/check_fw_versions.py
     # check the changelog
     - python tools/check_changelog.py
+    # check weak functions # Can also pass --functions optionally # Can also pass --functions optionally.
+    - python tools/check_weak_functions.py --file host/api/src/esp_wifi_weak.c
 
 .build_template_coprocessor:
   stage: build_coprocessor
@@ -58,10 +60,15 @@
         echo "Added esp_hosted override to idf_component.yml"
       fi
     # Add slave target configuration if specified
+    # Also add wi-fi remote slave target for supported targets (not ESP32-H2)
     - |
       if [ ! -z "${IDF_SLAVE_TARGET}" ]; then
-        echo "CONFIG_SLAVE_IDF_TARGET_${IDF_SLAVE_TARGET^^}=y" >> sdkconfig.defaults
-        echo "Added slave target CONFIG_SLAVE_IDF_TARGET_${IDF_SLAVE_TARGET^^}=y to sdkconfig.defaults"
+        if [[ "${IDF_SLAVE_TARGET}" != "esp32h2" ]]; then
+          echo "CONFIG_SLAVE_IDF_TARGET_${IDF_SLAVE_TARGET^^}=y" >> sdkconfig.defaults
+          echo "Added target CONFIG_SLAVE_IDF_TARGET_${IDF_SLAVE_TARGET^^}=y to sdkconfig.defaults"
+        fi
+        echo "CONFIG_ESP_HOSTED_CP_TARGET_${IDF_SLAVE_TARGET^^}=y" >> sdkconfig.defaults
+        echo "Added target CONFIG_ESP_HOSTED_CP_TARGET_${IDF_SLAVE_TARGET^^}=y to sdkconfig.defaults"
       fi
     # Append sdkconfig.ci.common if available
     - |
@@ -109,10 +116,15 @@
     - mkdir -p components
     - ln -sf ${OVERRIDE_PATH} components/esp_hosted
     # Add slave target configuration if specified
+    # Also add wi-fi remote slave target for supported targets (not ESP32-H2)
     - |
       if [ ! -z "${IDF_SLAVE_TARGET}" ]; then
-        echo "CONFIG_SLAVE_IDF_TARGET_${IDF_SLAVE_TARGET^^}=y" >> sdkconfig.defaults
-        echo "Added slave target CONFIG_SLAVE_IDF_TARGET_${IDF_SLAVE_TARGET^^}=y to sdkconfig.defaults"
+        if [[ "${IDF_SLAVE_TARGET}" != "esp32h2" ]]; then
+          echo "CONFIG_SLAVE_IDF_TARGET_${IDF_SLAVE_TARGET^^}=y" >> sdkconfig.defaults
+          echo "Added target CONFIG_SLAVE_IDF_TARGET_${IDF_SLAVE_TARGET^^}=y to sdkconfig.defaults"
+        fi
+        echo "CONFIG_ESP_HOSTED_CP_TARGET_${IDF_SLAVE_TARGET^^}=y" >> sdkconfig.defaults
+        echo "Added slave target CONFIG_ESP_HOSTED_CP_TARGET_${IDF_SLAVE_TARGET^^}=y to sdkconfig.defaults"
       fi
     # EXAMPLE_CI_FILE: use sdkconfig CI file in example directory
     - |
@@ -177,10 +189,15 @@
         echo "Added esp_hosted override to idf_component.yml"
       fi
     # Add slave target configuration if specified
+    # Also add wi-fi remote slave target for supported targets (not ESP32-H2)
     - |
       if [ ! -z "${IDF_SLAVE_TARGET}" ]; then
-        echo "CONFIG_SLAVE_IDF_TARGET_${IDF_SLAVE_TARGET^^}=y" >> sdkconfig.defaults
-        echo "Added slave target CONFIG_SLAVE_IDF_TARGET_${IDF_SLAVE_TARGET^^}=y to sdkconfig.defaults"
+        if [[ "${IDF_SLAVE_TARGET}" != "esp32h2" ]]; then
+          echo "CONFIG_SLAVE_IDF_TARGET_${IDF_SLAVE_TARGET^^}=y" >> sdkconfig.defaults
+          echo "Added target CONFIG_SLAVE_IDF_TARGET_${IDF_SLAVE_TARGET^^}=y to sdkconfig.defaults"
+        fi
+        echo "CONFIG_ESP_HOSTED_CP_TARGET_${IDF_SLAVE_TARGET^^}=y" >> sdkconfig.defaults
+        echo "Added slave target CONFIG_ESP_HOSTED_CP_TARGET_${IDF_SLAVE_TARGET^^}=y to sdkconfig.defaults"
       fi
     # HOSTED_CI_FILE: use custom sdkconfig CI file from esp_hosted directory, or
     # EXAMPLE_CI_FILE: use sdkconfig CI file in example directory

@@ -1,0 +1,70 @@
+Command: make -j 12 all
+/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_wifi/remote/esp_wifi_with_remote.c: In function 'esp_wifi_get_home_channel':
+/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_wifi/remote/esp_wifi_with_remote.c:152:12: error: implicit declaration of function 'esp_wifi_remote_get_home_channel'; did you mean 'esp_wifi_remote_get_channel'? [-Wimplicit-function-declaration]
+  152 |     return esp_wifi_remote_get_home_channel(primary, second);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |            esp_wifi_remote_get_channel
+make[2]: *** [esp-idf/espressif__esp_wifi_remote/CMakeFiles/__idf_espressif__esp_wifi_remote.dir/__/__/.espressif/esp-idf/components/esp_wifi/remote/esp_wifi_with_remote.c.obj] Error 1
+make[2]: *** Waiting for unfinished jobs....
+make[1]: *** [esp-idf/espressif__esp_wifi_remote/CMakeFiles/__idf_espressif__esp_wifi_remote.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+Configuration Report                                                            
+ ────────────────────────────────────────────────────────────────────────────── 
+   Parser Version: 1                                                            
+   Verbosity: default                                                           
+   Defaults policy: sdkconfig                                                   
+   Status: Finished with notifications                                          
+                                                                                
+  Disabled Symbols/Choices With User-Set Value                                  
+   ──────────────────────────────────────────────────────────────────────────   
+    * PARTITION_TABLE_CUSTOM_FILENAME (defined at                               
+    /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components…    
+    with user-set value partitions.csv from                                     
+    /var/folders/t0/6_6hjdw12jq6vh7632kxn33h0000gn/T/kconfgen_tmpzf4urhj0       
+    * ESP_SLEEP_PSRAM_LEAKAGE_WORKAROUND (defined at                            
+    /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components…    
+    with user-set value y from                                                  
+    /var/folders/t0/6_6hjdw12jq6vh7632kxn33h0000gn/T/kconfgen_tmpzf4urhj0       
+    * ESP_INTR_IN_IRAM (defined at                                              
+    /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components…    
+    with user-set value y from                                                  
+    /var/folders/t0/6_6hjdw12jq6vh7632kxn33h0000gn/T/kconfgen_tmpzf4urhj0       
+    * LIBC_MISC_IN_IRAM (defined at                                             
+    /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components…    
+    with user-set value y from                                                  
+    /var/folders/t0/6_6hjdw12jq6vh7632kxn33h0000gn/T/kconfgen_tmpzf4urhj0       
+    * ESP_ROM_PRINT_IN_IRAM (defined at                                         
+    /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components…    
+    with user-set value y from                                                  
+    /var/folders/t0/6_6hjdw12jq6vh7632kxn33h0000gn/T/kconfgen_tmpzf4urhj0       
+    * ESP_CONSOLE_UART_BAUDRATE (defined at                                     
+    /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components…    
+    with user-set value 115200 from                                             
+    /var/folders/t0/6_6hjdw12jq6vh7632kxn33h0000gn/T/kconfgen_tmpzf4urhj0       
+    * ESP_SYSTEM_IN_IRAM (defined at                                            
+    /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components…    
+    with user-set value y from                                                  
+    /var/folders/t0/6_6hjdw12jq6vh7632kxn33h0000gn/T/kconfgen_tmpzf4urhj0       
+    * FREERTOS_TASK_CREATE_ALLOW_EXT_MEM (defined at                            
+    /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components…    
+    with user-set value y from                                                  
+    /var/folders/t0/6_6hjdw12jq6vh7632kxn33h0000gn/T/kconfgen_tmpzf4urhj0       
+    * LOG_IN_IRAM (defined at                                                   
+    /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components…    
+    with user-set value y from                                                  
+    /var/folders/t0/6_6hjdw12jq6vh7632kxn33h0000gn/T/kconfgen_tmpzf4urhj0       
+    * SPI_FLASH_PLACE_FUNCTIONS_IN_IRAM (defined at                             
+    /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components…    
+    with user-set value y from                                                  
+    /var/folders/t0/6_6hjdw12jq6vh7632kxn33h0000gn/T/kconfgen_tmpzf4urhj0       
+    * <choice LIBC_STDOUT_LINE_ENDING> (defined at                              
+    /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components…    
+    with user-set value LIBC_STDOUT_LINE_ENDING_CRLF from                       
+    /var/folders/t0/6_6hjdw12jq6vh7632kxn33h0000gn/T/kconfgen_tmpzf4urhj0       
+    * <choice LIBC_STDIN_LINE_ENDING> (defined at                               
+    /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components…    
+    with user-set value LIBC_STDIN_LINE_ENDING_CR from                          
+    /var/folders/t0/6_6hjdw12jq6vh7632kxn33h0000gn/T/kconfgen_tmpzf4urhj0       
+   ──────────────────────────────────────────────────────────────────────────   
+ ────────────────────────────────────────────────────────────────────────────── 
+make: *** [all] Error 2

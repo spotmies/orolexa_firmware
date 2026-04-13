@@ -1,0 +1,26 @@
+
+# Consider dependencies only in project.
+set(CMAKE_DEPENDS_IN_PROJECT_ONLY OFF)
+
+# The set of languages for which implicit dependencies are needed:
+set(CMAKE_DEPENDS_LANGUAGES
+  )
+
+# The set of dependency files which are needed:
+set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_hal_pmu/brownout_hal.c" "esp-idf/esp_hal_pmu/CMakeFiles/__idf_esp_hal_pmu.dir/brownout_hal.c.obj" "gcc" "esp-idf/esp_hal_pmu/CMakeFiles/__idf_esp_hal_pmu.dir/brownout_hal.c.obj.d"
+  "/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_hal_pmu/esp32p4/pau_hal.c" "esp-idf/esp_hal_pmu/CMakeFiles/__idf_esp_hal_pmu.dir/esp32p4/pau_hal.c.obj" "gcc" "esp-idf/esp_hal_pmu/CMakeFiles/__idf_esp_hal_pmu.dir/esp32p4/pau_hal.c.obj.d"
+  "/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_hal_pmu/esp32p4/pmu_hal.c" "esp-idf/esp_hal_pmu/CMakeFiles/__idf_esp_hal_pmu.dir/esp32p4/pmu_hal.c.obj" "gcc" "esp-idf/esp_hal_pmu/CMakeFiles/__idf_esp_hal_pmu.dir/esp32p4/pmu_hal.c.obj.d"
+  "/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_hal_pmu/vbat_hal.c" "esp-idf/esp_hal_pmu/CMakeFiles/__idf_esp_hal_pmu.dir/vbat_hal.c.obj" "gcc" "esp-idf/esp_hal_pmu/CMakeFiles/__idf_esp_hal_pmu.dir/vbat_hal.c.obj.d"
+  )
+
+# Targets to which this target links which contain Fortran sources.
+set(CMAKE_Fortran_TARGET_LINKED_INFO_FILES
+  )
+
+# Targets to which this target links which contain Fortran sources.
+set(CMAKE_Fortran_TARGET_FORWARD_LINKED_INFO_FILES
+  )
+
+# Fortran module output directory.
+set(CMAKE_Fortran_TARGET_MODULE_DIR "")

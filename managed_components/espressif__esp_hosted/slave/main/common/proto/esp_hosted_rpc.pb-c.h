@@ -21,6 +21,7 @@ typedef struct WifiActiveScanTime WifiActiveScanTime;
 typedef struct WifiScanTime WifiScanTime;
 typedef struct WifiScanChannelBitmap WifiScanChannelBitmap;
 typedef struct WifiScanConfig WifiScanConfig;
+typedef struct WifiScanDefaultParams WifiScanDefaultParams;
 typedef struct WifiHeApInfo WifiHeApInfo;
 typedef struct WifiApRecord WifiApRecord;
 typedef struct WifiScanThreshold WifiScanThreshold;
@@ -161,6 +162,8 @@ typedef struct RpcRespWifiStaGetNegotiatedPhymode RpcRespWifiStaGetNegotiatedPhy
 typedef struct RpcRespWifiApGetStaAid RpcRespWifiApGetStaAid;
 typedef struct RpcReqWifiStaGetRssi RpcReqWifiStaGetRssi;
 typedef struct RpcRespWifiStaGetRssi RpcRespWifiStaGetRssi;
+typedef struct RpcReqWifiScanParams RpcReqWifiScanParams;
+typedef struct RpcRespWifiScanParams RpcRespWifiScanParams;
 typedef struct RpcReqWifiStaGetAid RpcReqWifiStaGetAid;
 typedef struct RpcRespWifiStaGetAid RpcRespWifiStaGetAid;
 typedef struct RpcReqWifiSetProtocols RpcReqWifiSetProtocols;
@@ -244,6 +247,8 @@ typedef struct RpcReqGpioInputEnable RpcReqGpioInputEnable;
 typedef struct RpcRespGpioInputEnable RpcRespGpioInputEnable;
 typedef struct RpcReqGpioSetPullMode RpcReqGpioSetPullMode;
 typedef struct RpcRespGpioSetPullMode RpcRespGpioSetPullMode;
+typedef struct RpcReqExtCoex RpcReqExtCoex;
+typedef struct RpcRespExtCoex RpcRespExtCoex;
 typedef struct RpcEventDhcpDnsStatus RpcEventDhcpDnsStatus;
 typedef struct RpcEventStaItwtSetup RpcEventStaItwtSetup;
 typedef struct RpcEventStaItwtTeardown RpcEventStaItwtTeardown;
@@ -347,6 +352,12 @@ typedef enum _RpcStatus {
   RPC__STATUS__Out_Of_Range = 5
     PROTOBUF_C__FORCE_ENUM_TO_BE_INT_SIZE(RPC__STATUS)
 } RpcStatus;
+typedef enum _RpcCmd {
+  RPC_CMD__Invalid = 0,
+  RPC_CMD__Get = 1,
+  RPC_CMD__Set = 2
+    PROTOBUF_C__FORCE_ENUM_TO_BE_INT_SIZE(RPC_CMD)
+} RpcCmd;
 typedef enum _RpcType {
   RPC_TYPE__MsgType_Invalid = 0,
   RPC_TYPE__Req = 1,
@@ -448,6 +459,10 @@ typedef enum _RpcId {
    *0x10c
    */
   RPC_ID__Req_MemMonitor = 268,
+  /*
+   *0x10d
+   */
+  RPC_ID__Req_WifiScanParams = 269,
   /*
    *0x10e
    */
@@ -966,13 +981,17 @@ typedef enum _RpcId {
    */
   RPC_ID__Req_GpioSetPullMode = 395,
   /*
+   * 0x18C
+   */
+  RPC_ID__Req_ExtCoex = 396,
+  /*
    * Add new control path command response before Req_Max
    * and update Req_Max 
    */
   /*
-   *0x18C
+   *0x18D
    */
-  RPC_ID__Req_Max = 396,
+  RPC_ID__Req_Max = 397,
   /*
    ** Response Msgs *
    */
@@ -995,6 +1014,7 @@ typedef enum _RpcId {
   RPC_ID__Resp_OTAActivate = 522,
   RPC_ID__Resp_AppGetDesc = 523,
   RPC_ID__Resp_MemMonitor = 524,
+  RPC_ID__Resp_WifiScanParams = 525,
   RPC_ID__Resp_WifiSetPs = 526,
   RPC_ID__Resp_WifiGetPs = 527,
   RPC_ID__Resp_OTABegin = 528,
@@ -1132,11 +1152,12 @@ typedef enum _RpcId {
   RPC_ID__Resp_GpioSetDirection = 649,
   RPC_ID__Resp_GpioInputEnable = 650,
   RPC_ID__Resp_GpioSetPullMode = 651,
+  RPC_ID__Resp_ExtCoex = 652,
   /*
    * Add new control path command response before Resp_Max
    * and update Resp_Max 
    */
-  RPC_ID__Resp_Max = 652,
+  RPC_ID__Resp_Max = 653,
   /*
    ** Event Msgs *
    */
@@ -1197,6 +1218,9 @@ typedef enum _RpcMemMonitorConfig {
    */
   RPC__MEM_MONITOR_CONFIG__MEMMONITOR_NO_CHANGE = 0,
   /*
+   * - to get current memory values without modifying config
+   */
+  /*
    * disable the monitor
    */
   RPC__MEM_MONITOR_CONFIG__MEMMONITOR_DISABLE = 1,
@@ -1206,6 +1230,17 @@ typedef enum _RpcMemMonitorConfig {
   RPC__MEM_MONITOR_CONFIG__MEMMONITOR_ENABLE = 2
     PROTOBUF_C__FORCE_ENUM_TO_BE_INT_SIZE(RPC__MEM_MONITOR_CONFIG)
 } RpcMemMonitorConfig;
+/*
+ * Single RPC for external coex: cmd determines which fields are used 
+ */
+typedef enum _RpcExtCoexCmd {
+  RPC__EXT_COEX_CMD__SetGpioPin = 0,
+  RPC__EXT_COEX_CMD__Disable = 1,
+  RPC__EXT_COEX_CMD__SetWorkMode = 2,
+  RPC__EXT_COEX_CMD__SetGrantDelay = 3,
+  RPC__EXT_COEX_CMD__SetValidateHigh = 4
+    PROTOBUF_C__FORCE_ENUM_TO_BE_INT_SIZE(RPC__EXT_COEX_CMD)
+} RpcExtCoexCmd;
 
 /* --- messages --- */
 
@@ -1438,6 +1473,23 @@ struct  WifiScanConfig
 #define WIFI_SCAN_CONFIG__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&wifi_scan_config__descriptor) \
     , {0,NULL}, {0,NULL}, 0, 0, 0, NULL, 0, NULL }
+
+
+struct  WifiScanDefaultParams
+{
+  ProtobufCMessage base;
+  /*
+   **< Scan time per channel 
+   */
+  WifiScanTime *scan_time;
+  /*
+   **< Time spent at home channel between scanning consecutive channels.
+   */
+  uint32_t home_chan_dwell_time;
+};
+#define WIFI_SCAN_DEFAULT_PARAMS__INIT \
+ { PROTOBUF_C_MESSAGE_INIT (&wifi_scan_default_params__descriptor) \
+    , NULL, 0 }
 
 
 struct  WifiHeApInfo
@@ -3691,6 +3743,29 @@ struct  RpcRespWifiStaGetRssi
     , 0, 0 }
 
 
+struct  RpcReqWifiScanParams
+{
+  ProtobufCMessage base;
+  RpcCmd cmd;
+  WifiScanDefaultParams *config;
+  protobuf_c_boolean is_config_null;
+};
+#define RPC__REQ__WIFI_SCAN_PARAMS__INIT \
+ { PROTOBUF_C_MESSAGE_INIT (&rpc__req__wifi_scan_params__descriptor) \
+    , RPC_CMD__Invalid, NULL, 0 }
+
+
+struct  RpcRespWifiScanParams
+{
+  ProtobufCMessage base;
+  int32_t resp;
+  WifiScanDefaultParams *config;
+};
+#define RPC__RESP__WIFI_SCAN_PARAMS__INIT \
+ { PROTOBUF_C_MESSAGE_INIT (&rpc__resp__wifi_scan_params__descriptor) \
+    , 0, NULL }
+
+
 struct  RpcReqWifiStaGetAid
 {
   ProtobufCMessage base;
@@ -4078,10 +4153,21 @@ struct  RpcRespGetCoprocessorFwVersion
   uint32_t major1;
   uint32_t minor1;
   uint32_t patch1;
+  int32_t revision;
+  int32_t prerelease;
+  int32_t build;
+  /*
+   * from sdkconfig->CONFIG_IDF_FIRMWARE_CHIP_ID
+   */
+  uint32_t chip_id;
+  /*
+   * from sdkconfig->CONFIG_IDF_TARGET
+   */
+  ProtobufCBinaryData idf_target;
 };
 #define RPC__RESP__GET_COPROCESSOR_FW_VERSION__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&rpc__resp__get_coprocessor_fw_version__descriptor) \
-    , 0, 0, 0, 0 }
+    , 0, 0, 0, 0, 0, 0, 0, 0, {0,NULL} }
 
 
 struct  RpcReqSetDhcpDnsStatus
@@ -4642,6 +4728,34 @@ struct  RpcRespGpioSetPullMode
 };
 #define RPC__RESP__GPIO_SET_PULL_MODE__INIT \
  { PROTOBUF_C_MESSAGE_INIT (&rpc__resp__gpio_set_pull_mode__descriptor) \
+    , 0 }
+
+
+struct  RpcReqExtCoex
+{
+  ProtobufCMessage base;
+  uint32_t cmd;
+  uint32_t set_gpio_wire_type;
+  int32_t set_gpio_request_pin;
+  int32_t set_gpio_priority_pin;
+  int32_t set_gpio_grant_pin;
+  int32_t set_gpio_tx_line_pin;
+  uint32_t set_work_mode;
+  uint32_t set_grant_delay_us;
+  protobuf_c_boolean set_validate_high;
+};
+#define RPC__REQ__EXT_COEX__INIT \
+ { PROTOBUF_C_MESSAGE_INIT (&rpc__req__ext_coex__descriptor) \
+    , 0, 0, 0, 0, 0, 0, 0, 0, 0 }
+
+
+struct  RpcRespExtCoex
+{
+  ProtobufCMessage base;
+  int32_t resp;
+};
+#define RPC__RESP__EXT_COEX__INIT \
+ { PROTOBUF_C_MESSAGE_INIT (&rpc__resp__ext_coex__descriptor) \
     , 0 }
 
 
@@ -5385,6 +5499,7 @@ typedef enum {
   RPC__PAYLOAD_REQ_OTA_ACTIVATE = 266,
   RPC__PAYLOAD_REQ_APP_GET_DESC = 267,
   RPC__PAYLOAD_REQ_MEM_MONITOR = 268,
+  RPC__PAYLOAD_REQ_WIFI_SCAN_PARAMS = 269,
   RPC__PAYLOAD_REQ_WIFI_SET_PS = 270,
   RPC__PAYLOAD_REQ_WIFI_GET_PS = 271,
   RPC__PAYLOAD_REQ_OTA_BEGIN = 272,
@@ -5482,6 +5597,7 @@ typedef enum {
   RPC__PAYLOAD_REQ_GPIO_SET_DIRECTION = 393,
   RPC__PAYLOAD_REQ_GPIO_INPUT_ENABLE = 394,
   RPC__PAYLOAD_REQ_GPIO_SET_PULL_MODE = 395,
+  RPC__PAYLOAD_REQ_EXT_COEX = 396,
   RPC__PAYLOAD_RESP_GET_MAC_ADDRESS = 513,
   RPC__PAYLOAD_RESP_SET_MAC_ADDRESS = 514,
   RPC__PAYLOAD_RESP_GET_WIFI_MODE = 515,
@@ -5494,6 +5610,7 @@ typedef enum {
   RPC__PAYLOAD_RESP_OTA_ACTIVATE = 522,
   RPC__PAYLOAD_RESP_APP_GET_DESC = 523,
   RPC__PAYLOAD_RESP_MEM_MONITOR = 524,
+  RPC__PAYLOAD_RESP_WIFI_SCAN_PARAMS = 525,
   RPC__PAYLOAD_RESP_WIFI_SET_PS = 526,
   RPC__PAYLOAD_RESP_WIFI_GET_PS = 527,
   RPC__PAYLOAD_RESP_OTA_BEGIN = 528,
@@ -5591,6 +5708,7 @@ typedef enum {
   RPC__PAYLOAD_RESP_GPIO_SET_DIRECTION = 649,
   RPC__PAYLOAD_RESP_GPIO_INPUT_ENABLE = 650,
   RPC__PAYLOAD_RESP_GPIO_SET_PULL_MODE = 651,
+  RPC__PAYLOAD_RESP_EXT_COEX = 652,
   RPC__PAYLOAD_EVENT_ESP_INIT = 769,
   RPC__PAYLOAD_EVENT_HEARTBEAT = 770,
   RPC__PAYLOAD_EVENT_AP_STA_CONNECTED = 771,
@@ -5647,6 +5765,7 @@ struct  Rpc
     RpcReqOTAActivate *req_ota_activate;
     RpcReqAppGetDesc *req_app_get_desc;
     RpcReqMemMonitor *req_mem_monitor;
+    RpcReqWifiScanParams *req_wifi_scan_params;
     RpcReqSetPs *req_wifi_set_ps;
     RpcReqGetPs *req_wifi_get_ps;
     RpcReqOTABegin *req_ota_begin;
@@ -5744,6 +5863,7 @@ struct  Rpc
     RpcReqGpioSetDirection *req_gpio_set_direction;
     RpcReqGpioInputEnable *req_gpio_input_enable;
     RpcReqGpioSetPullMode *req_gpio_set_pull_mode;
+    RpcReqExtCoex *req_ext_coex;
     /*
      ** Responses *
      */
@@ -5759,6 +5879,7 @@ struct  Rpc
     RpcRespOTAActivate *resp_ota_activate;
     RpcRespAppGetDesc *resp_app_get_desc;
     RpcRespMemMonitor *resp_mem_monitor;
+    RpcRespWifiScanParams *resp_wifi_scan_params;
     RpcRespSetPs *resp_wifi_set_ps;
     RpcRespGetPs *resp_wifi_get_ps;
     RpcRespOTABegin *resp_ota_begin;
@@ -5856,6 +5977,7 @@ struct  Rpc
     RpcRespGpioSetDirection *resp_gpio_set_direction;
     RpcRespGpioInputEnable *resp_gpio_input_enable;
     RpcRespGpioSetPullMode *resp_gpio_set_pull_mode;
+    RpcRespExtCoex *resp_ext_coex;
     /*
      ** Notifications *
      */
@@ -6000,6 +6122,25 @@ WifiScanConfig *
                       const uint8_t       *data);
 void   wifi_scan_config__free_unpacked
                      (WifiScanConfig *message,
+                      ProtobufCAllocator *allocator);
+/* WifiScanDefaultParams methods */
+void   wifi_scan_default_params__init
+                     (WifiScanDefaultParams         *message);
+size_t wifi_scan_default_params__get_packed_size
+                     (const WifiScanDefaultParams   *message);
+size_t wifi_scan_default_params__pack
+                     (const WifiScanDefaultParams   *message,
+                      uint8_t             *out);
+size_t wifi_scan_default_params__pack_to_buffer
+                     (const WifiScanDefaultParams   *message,
+                      ProtobufCBuffer     *buffer);
+WifiScanDefaultParams *
+       wifi_scan_default_params__unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const uint8_t       *data);
+void   wifi_scan_default_params__free_unpacked
+                     (WifiScanDefaultParams *message,
                       ProtobufCAllocator *allocator);
 /* WifiHeApInfo methods */
 void   wifi_he_ap_info__init
@@ -8661,6 +8802,44 @@ RpcRespWifiStaGetRssi *
 void   rpc__resp__wifi_sta_get_rssi__free_unpacked
                      (RpcRespWifiStaGetRssi *message,
                       ProtobufCAllocator *allocator);
+/* RpcReqWifiScanParams methods */
+void   rpc__req__wifi_scan_params__init
+                     (RpcReqWifiScanParams         *message);
+size_t rpc__req__wifi_scan_params__get_packed_size
+                     (const RpcReqWifiScanParams   *message);
+size_t rpc__req__wifi_scan_params__pack
+                     (const RpcReqWifiScanParams   *message,
+                      uint8_t             *out);
+size_t rpc__req__wifi_scan_params__pack_to_buffer
+                     (const RpcReqWifiScanParams   *message,
+                      ProtobufCBuffer     *buffer);
+RpcReqWifiScanParams *
+       rpc__req__wifi_scan_params__unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const uint8_t       *data);
+void   rpc__req__wifi_scan_params__free_unpacked
+                     (RpcReqWifiScanParams *message,
+                      ProtobufCAllocator *allocator);
+/* RpcRespWifiScanParams methods */
+void   rpc__resp__wifi_scan_params__init
+                     (RpcRespWifiScanParams         *message);
+size_t rpc__resp__wifi_scan_params__get_packed_size
+                     (const RpcRespWifiScanParams   *message);
+size_t rpc__resp__wifi_scan_params__pack
+                     (const RpcRespWifiScanParams   *message,
+                      uint8_t             *out);
+size_t rpc__resp__wifi_scan_params__pack_to_buffer
+                     (const RpcRespWifiScanParams   *message,
+                      ProtobufCBuffer     *buffer);
+RpcRespWifiScanParams *
+       rpc__resp__wifi_scan_params__unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const uint8_t       *data);
+void   rpc__resp__wifi_scan_params__free_unpacked
+                     (RpcRespWifiScanParams *message,
+                      ProtobufCAllocator *allocator);
 /* RpcReqWifiStaGetAid methods */
 void   rpc__req__wifi_sta_get_aid__init
                      (RpcReqWifiStaGetAid         *message);
@@ -10238,6 +10417,44 @@ RpcRespGpioSetPullMode *
 void   rpc__resp__gpio_set_pull_mode__free_unpacked
                      (RpcRespGpioSetPullMode *message,
                       ProtobufCAllocator *allocator);
+/* RpcReqExtCoex methods */
+void   rpc__req__ext_coex__init
+                     (RpcReqExtCoex         *message);
+size_t rpc__req__ext_coex__get_packed_size
+                     (const RpcReqExtCoex   *message);
+size_t rpc__req__ext_coex__pack
+                     (const RpcReqExtCoex   *message,
+                      uint8_t             *out);
+size_t rpc__req__ext_coex__pack_to_buffer
+                     (const RpcReqExtCoex   *message,
+                      ProtobufCBuffer     *buffer);
+RpcReqExtCoex *
+       rpc__req__ext_coex__unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const uint8_t       *data);
+void   rpc__req__ext_coex__free_unpacked
+                     (RpcReqExtCoex *message,
+                      ProtobufCAllocator *allocator);
+/* RpcRespExtCoex methods */
+void   rpc__resp__ext_coex__init
+                     (RpcRespExtCoex         *message);
+size_t rpc__resp__ext_coex__get_packed_size
+                     (const RpcRespExtCoex   *message);
+size_t rpc__resp__ext_coex__pack
+                     (const RpcRespExtCoex   *message,
+                      uint8_t             *out);
+size_t rpc__resp__ext_coex__pack_to_buffer
+                     (const RpcRespExtCoex   *message,
+                      ProtobufCBuffer     *buffer);
+RpcRespExtCoex *
+       rpc__resp__ext_coex__unpack
+                     (ProtobufCAllocator  *allocator,
+                      size_t               len,
+                      const uint8_t       *data);
+void   rpc__resp__ext_coex__free_unpacked
+                     (RpcRespExtCoex *message,
+                      ProtobufCAllocator *allocator);
 /* RpcEventDhcpDnsStatus methods */
 void   rpc__event__dhcp_dns_status__init
                      (RpcEventDhcpDnsStatus         *message);
@@ -11474,6 +11691,9 @@ typedef void (*WifiScanChannelBitmap_Closure)
 typedef void (*WifiScanConfig_Closure)
                  (const WifiScanConfig *message,
                   void *closure_data);
+typedef void (*WifiScanDefaultParams_Closure)
+                 (const WifiScanDefaultParams *message,
+                  void *closure_data);
 typedef void (*WifiHeApInfo_Closure)
                  (const WifiHeApInfo *message,
                   void *closure_data);
@@ -11894,6 +12114,12 @@ typedef void (*RpcReqWifiStaGetRssi_Closure)
 typedef void (*RpcRespWifiStaGetRssi_Closure)
                  (const RpcRespWifiStaGetRssi *message,
                   void *closure_data);
+typedef void (*RpcReqWifiScanParams_Closure)
+                 (const RpcReqWifiScanParams *message,
+                  void *closure_data);
+typedef void (*RpcRespWifiScanParams_Closure)
+                 (const RpcRespWifiScanParams *message,
+                  void *closure_data);
 typedef void (*RpcReqWifiStaGetAid_Closure)
                  (const RpcReqWifiStaGetAid *message,
                   void *closure_data);
@@ -12143,6 +12369,12 @@ typedef void (*RpcReqGpioSetPullMode_Closure)
 typedef void (*RpcRespGpioSetPullMode_Closure)
                  (const RpcRespGpioSetPullMode *message,
                   void *closure_data);
+typedef void (*RpcReqExtCoex_Closure)
+                 (const RpcReqExtCoex *message,
+                  void *closure_data);
+typedef void (*RpcRespExtCoex_Closure)
+                 (const RpcRespExtCoex *message,
+                  void *closure_data);
 typedef void (*RpcEventDhcpDnsStatus_Closure)
                  (const RpcEventDhcpDnsStatus *message,
                   void *closure_data);
@@ -12345,6 +12577,7 @@ extern const ProtobufCEnumDescriptor    rpc__wifi_bw__descriptor;
 extern const ProtobufCEnumDescriptor    rpc__wifi_power_save__descriptor;
 extern const ProtobufCEnumDescriptor    rpc__wifi_sec_prot__descriptor;
 extern const ProtobufCEnumDescriptor    rpc__status__descriptor;
+extern const ProtobufCEnumDescriptor    rpc_cmd__descriptor;
 extern const ProtobufCEnumDescriptor    rpc_type__descriptor;
 extern const ProtobufCEnumDescriptor    rpc_feature__descriptor;
 extern const ProtobufCEnumDescriptor    rpc_feature_command__descriptor;
@@ -12353,12 +12586,14 @@ extern const ProtobufCEnumDescriptor    rpc_id__descriptor;
 extern const ProtobufCEnumDescriptor    rpc__gpio_mode__descriptor;
 extern const ProtobufCEnumDescriptor    rpc__gpio_pull_mode__descriptor;
 extern const ProtobufCEnumDescriptor    rpc__mem_monitor_config__descriptor;
+extern const ProtobufCEnumDescriptor    rpc__ext_coex_cmd__descriptor;
 extern const ProtobufCMessageDescriptor wifi_init_config__descriptor;
 extern const ProtobufCMessageDescriptor wifi_country__descriptor;
 extern const ProtobufCMessageDescriptor wifi_active_scan_time__descriptor;
 extern const ProtobufCMessageDescriptor wifi_scan_time__descriptor;
 extern const ProtobufCMessageDescriptor wifi_scan_channel_bitmap__descriptor;
 extern const ProtobufCMessageDescriptor wifi_scan_config__descriptor;
+extern const ProtobufCMessageDescriptor wifi_scan_default_params__descriptor;
 extern const ProtobufCMessageDescriptor wifi_he_ap_info__descriptor;
 extern const ProtobufCMessageDescriptor wifi_ap_record__descriptor;
 extern const ProtobufCMessageDescriptor wifi_scan_threshold__descriptor;
@@ -12499,6 +12734,8 @@ extern const ProtobufCMessageDescriptor rpc__resp__wifi_sta_get_negotiated_phymo
 extern const ProtobufCMessageDescriptor rpc__resp__wifi_ap_get_sta_aid__descriptor;
 extern const ProtobufCMessageDescriptor rpc__req__wifi_sta_get_rssi__descriptor;
 extern const ProtobufCMessageDescriptor rpc__resp__wifi_sta_get_rssi__descriptor;
+extern const ProtobufCMessageDescriptor rpc__req__wifi_scan_params__descriptor;
+extern const ProtobufCMessageDescriptor rpc__resp__wifi_scan_params__descriptor;
 extern const ProtobufCMessageDescriptor rpc__req__wifi_sta_get_aid__descriptor;
 extern const ProtobufCMessageDescriptor rpc__resp__wifi_sta_get_aid__descriptor;
 extern const ProtobufCMessageDescriptor rpc__req__wifi_set_protocols__descriptor;
@@ -12582,6 +12819,8 @@ extern const ProtobufCMessageDescriptor rpc__req__gpio_input_enable__descriptor;
 extern const ProtobufCMessageDescriptor rpc__resp__gpio_input_enable__descriptor;
 extern const ProtobufCMessageDescriptor rpc__req__gpio_set_pull_mode__descriptor;
 extern const ProtobufCMessageDescriptor rpc__resp__gpio_set_pull_mode__descriptor;
+extern const ProtobufCMessageDescriptor rpc__req__ext_coex__descriptor;
+extern const ProtobufCMessageDescriptor rpc__resp__ext_coex__descriptor;
 extern const ProtobufCMessageDescriptor rpc__event__dhcp_dns_status__descriptor;
 extern const ProtobufCMessageDescriptor rpc__event__sta_itwt_setup__descriptor;
 extern const ProtobufCMessageDescriptor rpc__event__sta_itwt_teardown__descriptor;

@@ -12,7 +12,9 @@ idf_component_register(
         esp_timer
         esp_wifi
         esp_http_server
-        driver
+        esp_driver_gpio
+        esp_driver_i2c
+        esp_driver_ledc
         esp_wifi_remote
         usb_host_uvc
         mdns

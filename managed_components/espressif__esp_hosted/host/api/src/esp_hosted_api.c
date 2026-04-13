@@ -298,6 +298,18 @@ esp_err_t esp_wifi_remote_scan_start(const wifi_scan_config_t *config, bool bloc
 	return rpc_wifi_scan_start(config, block);
 }
 
+esp_err_t esp_wifi_remote_set_scan_parameters(const wifi_scan_default_params_t *config)
+{
+	check_transport_up();
+	return rpc_wifi_set_scan_parameters(config);
+}
+
+esp_err_t esp_wifi_remote_get_scan_parameters(wifi_scan_default_params_t *config)
+{
+	check_transport_up();
+	return rpc_wifi_get_scan_parameters(config);
+}
+
 esp_err_t esp_wifi_remote_scan_stop(void)
 {
 	check_transport_up();
@@ -629,6 +641,13 @@ esp_err_t esp_hosted_get_coprocessor_fwversion(esp_hosted_coprocessor_fwver_t *v
 {
 	check_transport_up();
 	return rpc_get_coprocessor_fwversion(ver_info);
+}
+
+esp_err_t esp_hosted_get_cp_info(uint32_t *cp_chip_id, char *cp_target_name,
+		size_t cp_target_name_len)
+{
+	check_transport_up();
+	return rpc_get_cp_info(cp_chip_id, cp_target_name, cp_target_name_len);
 }
 
 #if H_WIFI_ENTERPRISE_SUPPORT

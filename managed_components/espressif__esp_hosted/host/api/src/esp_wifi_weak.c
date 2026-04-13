@@ -1,5 +1,5 @@
 /*
- * SPDX-FileCopyrightText: 2024-2025 Espressif Systems (Shanghai) CO LTD
+ * SPDX-FileCopyrightText: 2024-2026 Espressif Systems (Shanghai) CO LTD
  *
  * SPDX-License-Identifier: Apache-2.0
  */
@@ -76,6 +76,16 @@ H_WEAK_REF esp_err_t esp_wifi_deauth_sta(uint16_t aid)
 H_WEAK_REF esp_err_t esp_wifi_scan_start(const wifi_scan_config_t *config, bool block)
 {
 	return esp_wifi_remote_scan_start(config, block);
+}
+
+H_WEAK_REF esp_err_t esp_wifi_set_scan_parameters(const wifi_scan_default_params_t *config)
+{
+	return esp_wifi_remote_set_scan_parameters(config);
+}
+
+H_WEAK_REF esp_err_t esp_wifi_get_scan_parameters(wifi_scan_default_params_t *config)
+{
+	return esp_wifi_remote_get_scan_parameters(config);
 }
 
 H_WEAK_REF esp_err_t esp_wifi_scan_stop(void)
@@ -443,7 +453,7 @@ H_WEAK_REF esp_err_t esp_eap_client_set_domain_name(const char *domain_name)
 }
 
 #if H_GOT_SET_EAP_METHODS_API
-esp_err_t esp_eap_client_set_eap_methods(esp_eap_method_t methods)
+H_WEAK_REF esp_err_t esp_eap_client_set_eap_methods(esp_eap_method_t methods)
 {
 	return esp_eap_client_remote_set_eap_methods(methods);
 }

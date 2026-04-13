@@ -22,7 +22,7 @@
 #include "mdns.h"
 
 #include "driver/gpio.h"
-#include "driver/i2c.h"
+#include "driver/i2c_master.h"
 #include "driver/ledc.h"
 
 #include "esp_timer.h"
@@ -146,25 +146,44 @@ static int64_t boot_press_time;
 
 /******************** UVC ********************/
 static uvc_host_stream_hdl_t uvc_stream = NULL;
+static i2c_master_bus_handle_t i2c_bus_handle = NULL;
+static i2c_master_dev_handle_t mpu_i2c_dev = NULL;
 
 /* =====================================================
  * MPU6050
  * ===================================================== */
 static void mpu_init(void)
 {
-    i2c_config_t cfg = {
-        .mode = I2C_MODE_MASTER,
+    i2c_master_bus_config_t bus_cfg = {
+        .i2c_port = I2C_PORT,
         .sda_io_num = SDA_PIN,
         .scl_io_num = SCL_PIN,
-        .sda_pullup_en = GPIO_PULLUP_ENABLE,
-        .scl_pullup_en = GPIO_PULLUP_ENABLE,
-        .master.clk_speed = 400000
+        .clk_source = I2C_CLK_SRC_DEFAULT,
+        .glitch_ignore_cnt = 7,
+        .flags.enable_internal_pullup = true,
     };
-    i2c_param_config(I2C_PORT, &cfg);
-    i2c_driver_install(I2C_PORT, cfg.mode, 0, 0, 0);
+    esp_err_t err = i2c_new_master_bus(&bus_cfg, &i2c_bus_handle);
+    if (err != ESP_OK) {
+        ESP_LOGE(TAG, "MPU I2C bus init failed: %s", esp_err_to_name(err));
+        return;
+    }
+
+    i2c_device_config_t dev_cfg = {
+        .dev_addr_length = I2C_ADDR_BIT_LEN_7,
+        .device_address = MPU_ADDR,
+        .scl_speed_hz = 400000,
+    };
+    err = i2c_master_bus_add_device(i2c_bus_handle, &dev_cfg, &mpu_i2c_dev);
+    if (err != ESP_OK) {
+        ESP_LOGE(TAG, "MPU I2C add device failed: %s", esp_err_to_name(err));
+        return;
+    }
 
     uint8_t cmd[2] = {MPU_PWR, 0x00};
-    i2c_master_write_to_device(I2C_PORT, MPU_ADDR, cmd, 2, pdMS_TO_TICKS(100));
+    err = i2c_master_transmit(mpu_i2c_dev, cmd, sizeof(cmd), 100);
+    if (err != ESP_OK) {
+        ESP_LOGE(TAG, "MPU wake command failed: %s", esp_err_to_name(err));
+    }
 }
 
 static void mpu_task(void *arg)
@@ -175,10 +194,10 @@ static void mpu_task(void *arg)
     const int16_t thresh = 12000;
 
     while (1) {
-        if (sta_has_ip &&
-            i2c_master_write_read_device(I2C_PORT, MPU_ADDR,
-                                         &reg, 1, buf, 6,
-                                         pdMS_TO_TICKS(100)) == ESP_OK) {
+        if (sta_has_ip && mpu_i2c_dev != NULL &&
+            i2c_master_transmit_receive(mpu_i2c_dev,
+                                        &reg, 1, buf, sizeof(buf),
+                                        100) == ESP_OK) {
 
             ax = (buf[0] << 8) | buf[1];
             ay = (buf[2] << 8) | buf[3];

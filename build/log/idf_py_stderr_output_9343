@@ -1,0 +1,87 @@
+Command: /Users/tejasai/.espressif/python_env/idf6.1_py3.14_env/bin/python /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/tools/idf_monitor.py -p /dev/cu.usbmodem5AAF2857331 -b 115200 --toolchain-prefix riscv32-esp-elf- --target esp32p4 --revision 1 --decode-panic backtrace /Users/tejasai/Downloads/orolexa/DentalS3/build/DentalSystemS3.elf /Users/tejasai/Downloads/orolexa/DentalS3/build/bootloader/bootloader.elf -m '/Users/tejasai/.espressif/python_env/idf6.1_py3.14_env/bin/python' '/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/tools/idf.py' '-p' '/dev/cu.usbmodem5AAF2857331'
+[0;33m--- esp-idf-monitor 1.9.0 on /dev/cu.usbmodem5AAF2857331 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0m--- 0x4ff29ed0: [0;33mesp_bootloader_get_description[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_bootloader_format/esp_bootloader_desc.c[0m[0m:[1;31m40[0m
+[0m--- 0x4ff2cbd0: [0;33mis_xmc_chip_strict[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/bootloader_support/bootloader_flash/src/bootloader_flash.c[0m[0m:[1;31m925[0m
+[0m--- 0x4ff29eda: [0;33mcall_start_cpu0[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/bootloader/subproject/main/bootloader_start.c[0m[0m:[1;31m27[0m
+[0m--- 0x40029b24: [0;33mmpu_init[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/main/main.c[0m[0m:[1;31m164[0m
+[0m--- 0x4ff09bb9: [0;33m_esp_error_check_failed[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m38[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4ff09c10: [0;33mpanic_abort[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m509[0m
+[0m--- 0x4ff09bc2: [0;33mesp_vApplicationTickHook[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_system/freertos_hooks.c[0m[0m:[1;31m31[0m
+[0m--- 0x4ff00003: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x4ff052c4: [0;33mcpu_utility_ll_reset_cpu[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/hal/esp32p4/include/hal/cpu_utility_ll.h[0m[0m:[1;31m25[0m
+[0m--- (inlined by) [0;33mesp_cpu_reset[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_hw_support/cpu.c[0m[0m:[1;31m49[0m
+[0m--- 0x4ff0540c: [0;33mesp_cpu_wait_for_intr[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_hw_support/cpu.c[0m[0m:[1;31m57[0m
+[0m--- 0x4ff29ed0: [0;33mesp_bootloader_get_description[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_bootloader_format/esp_bootloader_desc.c[0m[0m:[1;31m40[0m
+[0m--- 0x4ff2cbd0: [0;33mis_xmc_chip_strict[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/bootloader_support/bootloader_flash/src/bootloader_flash.c[0m[0m:[1;31m925[0m
+[0m--- 0x4ff29eda: [0;33mcall_start_cpu0[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/bootloader/subproject/main/bootloader_start.c[0m[0m:[1;31m27[0m
+[0m--- 0x40029b24: [0;33mmpu_init[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/main/main.c[0m[0m:[1;31m164[0m
+[0m--- 0x4ff09bb9: [0;33m_esp_error_check_failed[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m38[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4ff09c10: [0;33mpanic_abort[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m509[0m
+[0m--- 0x4ff09bc2: [0;33mesp_vApplicationTickHook[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_system/freertos_hooks.c[0m[0m:[1;31m31[0m
+[0m--- 0x4ff00003: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x4ff052c4: [0;33mcpu_utility_ll_reset_cpu[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/hal/esp32p4/include/hal/cpu_utility_ll.h[0m[0m:[1;31m25[0m
+[0m--- (inlined by) [0;33mesp_cpu_reset[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_hw_support/cpu.c[0m[0m:[1;31m49[0m
+[0m--- 0x4ff0540c: [0;33mesp_cpu_wait_for_intr[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_hw_support/cpu.c[0m[0m:[1;31m57[0m
+[0m--- 0x4ff29ed0: [0;33mesp_bootloader_get_description[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_bootloader_format/esp_bootloader_desc.c[0m[0m:[1;31m40[0m
+[0m--- 0x4ff2cbd0: [0;33mis_xmc_chip_strict[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/bootloader_support/bootloader_flash/src/bootloader_flash.c[0m[0m:[1;31m925[0m
+[0m--- 0x4ff29eda: [0;33mcall_start_cpu0[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/bootloader/subproject/main/bootloader_start.c[0m[0m:[1;31m27[0m
+[0m--- 0x40029b24: [0;33mmpu_init[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/main/main.c[0m[0m:[1;31m164[0m
+[0m--- 0x4ff09bb9: [0;33m_esp_error_check_failed[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m38[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4ff09c10: [0;33mpanic_abort[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m509[0m
+[0m--- 0x4ff09bc2: [0;33mesp_vApplicationTickHook[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_system/freertos_hooks.c[0m[0m:[1;31m31[0m
+[0m--- 0x4ff00003: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x4ff052c4: [0;33mcpu_utility_ll_reset_cpu[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/hal/esp32p4/include/hal/cpu_utility_ll.h[0m[0m:[1;31m25[0m
+[0m--- (inlined by) [0;33mesp_cpu_reset[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_hw_support/cpu.c[0m[0m:[1;31m49[0m
+[0m--- 0x4ff0540c: [0;33mesp_cpu_wait_for_intr[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_hw_support/cpu.c[0m[0m:[1;31m57[0m
+[0m--- 0x4ff29ed0: [0;33mesp_bootloader_get_description[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_bootloader_format/esp_bootloader_desc.c[0m[0m:[1;31m40[0m
+[0m--- 0x4ff2cbd0: [0;33mis_xmc_chip_strict[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/bootloader_support/bootloader_flash/src/bootloader_flash.c[0m[0m:[1;31m925[0m
+[0m--- 0x4ff29eda: [0;33mcall_start_cpu0[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/bootloader/subproject/main/bootloader_start.c[0m[0m:[1;31m27[0m
+[0m--- 0x40029b24: [0;33mmpu_init[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/main/main.c[0m[0m:[1;31m164[0m
+[0m--- 0x4ff09bb9: [0;33m_esp_error_check_failed[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m38[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4ff09c10: [0;33mpanic_abort[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m509[0m
+[0m--- 0x4ff09bc2: [0;33mesp_vApplicationTickHook[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_system/freertos_hooks.c[0m[0m:[1;31m31[0m
+[0m--- 0x4ff00003: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x4ff052c4: [0;33mcpu_utility_ll_reset_cpu[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/hal/esp32p4/include/hal/cpu_utility_ll.h[0m[0m:[1;31m25[0m
+[0m--- (inlined by) [0;33mesp_cpu_reset[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_hw_support/cpu.c[0m[0m:[1;31m49[0m
+[0m--- 0x4ff0540c: [0;33mesp_cpu_wait_for_intr[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_hw_support/cpu.c[0m[0m:[1;31m57[0m
+[0m--- 0x4ff29ed0: [0;33mesp_bootloader_get_description[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_bootloader_format/esp_bootloader_desc.c[0m[0m:[1;31m40[0m
+[0m--- 0x4ff2cbd0: [0;33mis_xmc_chip_strict[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/bootloader_support/bootloader_flash/src/bootloader_flash.c[0m[0m:[1;31m925[0m
+[0m--- 0x4ff29eda: [0;33mcall_start_cpu0[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/bootloader/subproject/main/bootloader_start.c[0m[0m:[1;31m27[0m
+[0m--- 0x40029b24: [0;33mmpu_init[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/main/main.c[0m[0m:[1;31m164[0m
+[0m--- 0x4ff09bb9: [0;33m_esp_error_check_failed[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_system/esp_err.c[0m[0m:[1;31m38[0m
+[0;33m--- Stack dump detected[0m
+[0m--- 0x4ff09c10: [0;33mpanic_abort[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_system/panic.c[0m[0m:[1;31m509[0m
+[0m--- 0x4ff09bc2: [0;33mesp_vApplicationTickHook[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_system/freertos_hooks.c[0m[0m:[1;31m31[0m
+[0m--- 0x4ff00003: [0;33m_vector_table[0m[0m at [0;32m??[0m[0m:[1;31m?[0m
+[0;33m
+--- Backtrace:
+
+[0m
+[0m--- 0x4ff052c4: [0;33mcpu_utility_ll_reset_cpu[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/hal/esp32p4/include/hal/cpu_utility_ll.h[0m[0m:[1;31m25[0m
+[0m--- (inlined by) [0;33mesp_cpu_reset[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_hw_support/cpu.c[0m[0m:[1;31m49[0m
+[0m--- 0x4ff0540c: [0;33mesp_cpu_wait_for_intr[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_hw_support/cpu.c[0m[0m:[1;31m57[0m
+[0m--- 0x4ff29ed0: [0;33mesp_bootloader_get_description[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_bootloader_format/esp_bootloader_desc.c[0m[0m:[1;31m40[0m
+[0m--- 0x4ff2cbd0: [0;33mis_xmc_chip_strict[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/bootloader_support/bootloader_flash/src/bootloader_flash.c[0m[0m:[1;31m925[0m
+[0m--- 0x4ff29eda: [0;33mcall_start_cpu0[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/bootloader/subproject/main/bootloader_start.c[0m[0m:[1;31m27[0m
+[0m

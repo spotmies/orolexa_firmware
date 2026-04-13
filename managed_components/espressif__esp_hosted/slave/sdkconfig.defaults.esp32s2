@@ -49,10 +49,15 @@ CONFIG_COMPILER_OPTIMIZATION_SIZE=y
 CONFIG_ESP_PKT_STATS=y
 
 # 8. Priorities
-----------------
+#--------------
 CONFIG_IPERF_TRAFFIC_TASK_PRIORITY=18
 CONFIG_IPERF_REPORT_TASK_PRIORITY=18
 
 # 9. Mem optimizations
 #---------------------
 CONFIG_FREERTOS_PLACE_FUNCTIONS_INTO_FLASH=y
+
+# 10. Bluetooth
+#--------------
+CONFIG_BT_ENABLED=n
+

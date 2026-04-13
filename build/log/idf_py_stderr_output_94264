@@ -1,0 +1,10 @@
+Command: make -j 12 all
+/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_wifi/remote/esp_wifi_with_remote.c: In function 'esp_wifi_get_home_channel':
+/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_wifi/remote/esp_wifi_with_remote.c:152:12: error: implicit declaration of function 'esp_wifi_remote_get_home_channel'; did you mean 'esp_wifi_remote_get_channel'? [-Wimplicit-function-declaration]
+  152 |     return esp_wifi_remote_get_home_channel(primary, second);
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      |            esp_wifi_remote_get_channel
+make[2]: *** [esp-idf/espressif__esp_wifi_remote/CMakeFiles/__idf_espressif__esp_wifi_remote.dir/__/__/.espressif/esp-idf/components/esp_wifi/remote/esp_wifi_with_remote.c.obj] Error 1
+make[1]: *** [esp-idf/espressif__esp_wifi_remote/CMakeFiles/__idf_espressif__esp_wifi_remote.dir/all] Error 2
+make[1]: *** Waiting for unfinished jobs....
+make: *** [all] Error 2

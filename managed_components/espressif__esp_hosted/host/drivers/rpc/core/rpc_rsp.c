@@ -234,6 +234,20 @@ int rpc_parse_rsp(Rpc *rpc_msg, ctrl_cmd_t *app_resp)
 		RPC_FAIL_ON_NULL(resp_wifi_set_config);
 		RPC_ERR_IN_RESP(resp_wifi_set_config);
 		break;
+	} case RPC_ID__Resp_WifiScanParams: {
+		rpc_wifi_scan_params_t *p_a = &app_resp->u.wifi_scan_params;
+		WifiScanDefaultParams *p_c = rpc_msg->resp_wifi_scan_params->config;
+
+		RPC_FAIL_ON_NULL(resp_wifi_scan_params);
+		RPC_ERR_IN_RESP(resp_wifi_scan_params);
+
+		if (p_c) {
+			p_a->config.scan_time.passive = p_c->scan_time->passive;
+			p_a->config.scan_time.active.min = p_c->scan_time->active->min;
+			p_a->config.scan_time.active.max = p_c->scan_time->active->max;
+			p_a->config.home_chan_dwell_time = p_c->home_chan_dwell_time;
+		}
+		break;
 	} case RPC_ID__Resp_WifiGetConfig: {
 		RPC_FAIL_ON_NULL(resp_wifi_set_config);
 		RPC_ERR_IN_RESP(resp_wifi_set_config);
@@ -509,6 +523,27 @@ int rpc_parse_rsp(Rpc *rpc_msg, ctrl_cmd_t *app_resp)
 			rpc_msg->resp_get_coprocessor_fwversion->minor1;
 		app_resp->u.coprocessor_fwversion.patch1 =
 			rpc_msg->resp_get_coprocessor_fwversion->patch1;
+
+		// ensure revision, prerelease and build are -1 if not found (0)
+		app_resp->u.coprocessor_fwversion.revision =
+			(rpc_msg->resp_get_coprocessor_fwversion->revision) ?
+			rpc_msg->resp_get_coprocessor_fwversion->revision : -1;
+		app_resp->u.coprocessor_fwversion.prerelease =
+			(rpc_msg->resp_get_coprocessor_fwversion->prerelease) ?
+			rpc_msg->resp_get_coprocessor_fwversion->prerelease : -1;
+		app_resp->u.coprocessor_fwversion.build =
+			(rpc_msg->resp_get_coprocessor_fwversion->build) ?
+			rpc_msg->resp_get_coprocessor_fwversion->build : -1;
+
+		app_resp->u.coprocessor_fwversion.chip_id =
+			rpc_msg->resp_get_coprocessor_fwversion->chip_id;
+		int copy_size = H_MIN(rpc_msg->resp_get_coprocessor_fwversion->idf_target.len,
+				(sizeof(app_resp->u.coprocessor_fwversion.idf_target) - 1));
+		if (copy_size) {
+			g_h.funcs->_h_memcpy(app_resp->u.coprocessor_fwversion.idf_target,
+					rpc_msg->resp_get_coprocessor_fwversion->idf_target.data,
+					copy_size);
+		}
 		break;
 	} case RPC_ID__Resp_WifiSetInactiveTime: {
 		RPC_FAIL_ON_NULL(resp_wifi_set_inactive_time);
@@ -852,6 +887,12 @@ int rpc_parse_rsp(Rpc *rpc_msg, ctrl_cmd_t *app_resp)
 	} case RPC_ID__Resp_GpioSetPullMode: {
 		RPC_FAIL_ON_NULL(resp_gpio_set_pull_mode);
 		RPC_ERR_IN_RESP(resp_gpio_set_pull_mode);
+		break;
+#endif
+#if H_EXT_COEX_SUPPORT
+	} case RPC_ID__Resp_ExtCoex: {
+		RPC_FAIL_ON_NULL(resp_ext_coex);
+		RPC_ERR_IN_RESP(resp_ext_coex);
 		break;
 #endif
 	} default: {
