@@ -1,2 +1,2 @@
-source C:/Users/ADMIN/Dev/DentalS3/build/bootloader/gdbinit/symbols
-source C:/Users/ADMIN/Dev/DentalS3/build/bootloader/gdbinit/connect
+source /Users/tejasai/Downloads/orolexa/DentalS3/build/bootloader/gdbinit/symbols
+source /Users/tejasai/Downloads/orolexa/DentalS3/build/bootloader/gdbinit/connect
