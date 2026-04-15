@@ -4395,26 +4395,6 @@ CMakeFiles/_project_elf_src.dir/clean:
 # Target rules for target CMakeFiles/DentalSystemS3.elf.dir
 
 # All Build rule for target.
-CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_driver_gptimer/CMakeFiles/__idf_esp_driver_gptimer.dir/all
-CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/unity/CMakeFiles/__idf_unity.dir/all
-CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/cmock/CMakeFiles/__idf_cmock.dir/all
-CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_blockdev_util/CMakeFiles/__idf_esp_blockdev_util.dir/all
-CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_hal_ana_cmpr/CMakeFiles/__idf_esp_hal_ana_cmpr.dir/all
-CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_driver_ana_cmpr/CMakeFiles/__idf_esp_driver_ana_cmpr.dir/all
-CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_driver_bitscrambler/CMakeFiles/__idf_esp_driver_bitscrambler.dir/all
-CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_driver_isp/CMakeFiles/__idf_esp_driver_isp.dir/all
-CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_driver_cam/CMakeFiles/__idf_esp_driver_cam.dir/all
-CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_driver_i2c/CMakeFiles/__idf_esp_driver_i2c.dir/all
-CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_hal_i3c/CMakeFiles/__idf_esp_hal_i3c.dir/all
-CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_driver_i3c/CMakeFiles/__idf_esp_driver_i3c.dir/all
-CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_hal_jpeg/CMakeFiles/__idf_esp_hal_jpeg.dir/all
-CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_driver_jpeg/CMakeFiles/__idf_esp_driver_jpeg.dir/all
-CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_hal_ledc/CMakeFiles/__idf_esp_hal_ledc.dir/all
-CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_driver_ledc/CMakeFiles/__idf_esp_driver_ledc.dir/all
-CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_hal_mcpwm/CMakeFiles/__idf_esp_hal_mcpwm.dir/all
-CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_driver_mcpwm/CMakeFiles/__idf_esp_driver_mcpwm.dir/all
-CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_hal_parlio/CMakeFiles/__idf_esp_hal_parlio.dir/all
-CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_driver_parlio/CMakeFiles/__idf_esp_driver_parlio.dir/all
 CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_hal_pcnt/CMakeFiles/__idf_esp_hal_pcnt.dir/all
 CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_driver_pcnt/CMakeFiles/__idf_esp_driver_pcnt.dir/all
 CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_hal_ppa/CMakeFiles/__idf_esp_hal_ppa.dir/all
@@ -4445,6 +4425,26 @@ CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/espressif__usb/CMakeFiles/__idf_e
 CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/espressif__usb_host_uvc/CMakeFiles/__idf_espressif__usb_host_uvc.dir/all
 CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/espressif__mdns/CMakeFiles/__idf_espressif__mdns.dir/all
 CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/main/CMakeFiles/__idf_main.dir/all
+CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_driver_gptimer/CMakeFiles/__idf_esp_driver_gptimer.dir/all
+CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/unity/CMakeFiles/__idf_unity.dir/all
+CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/cmock/CMakeFiles/__idf_cmock.dir/all
+CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_blockdev_util/CMakeFiles/__idf_esp_blockdev_util.dir/all
+CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_hal_ana_cmpr/CMakeFiles/__idf_esp_hal_ana_cmpr.dir/all
+CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_driver_ana_cmpr/CMakeFiles/__idf_esp_driver_ana_cmpr.dir/all
+CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_driver_bitscrambler/CMakeFiles/__idf_esp_driver_bitscrambler.dir/all
+CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_driver_isp/CMakeFiles/__idf_esp_driver_isp.dir/all
+CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_driver_cam/CMakeFiles/__idf_esp_driver_cam.dir/all
+CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_driver_i2c/CMakeFiles/__idf_esp_driver_i2c.dir/all
+CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_hal_i3c/CMakeFiles/__idf_esp_hal_i3c.dir/all
+CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_driver_i3c/CMakeFiles/__idf_esp_driver_i3c.dir/all
+CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_hal_jpeg/CMakeFiles/__idf_esp_hal_jpeg.dir/all
+CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_driver_jpeg/CMakeFiles/__idf_esp_driver_jpeg.dir/all
+CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_hal_ledc/CMakeFiles/__idf_esp_hal_ledc.dir/all
+CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_driver_ledc/CMakeFiles/__idf_esp_driver_ledc.dir/all
+CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_hal_mcpwm/CMakeFiles/__idf_esp_hal_mcpwm.dir/all
+CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_driver_mcpwm/CMakeFiles/__idf_esp_driver_mcpwm.dir/all
+CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_hal_parlio/CMakeFiles/__idf_esp_hal_parlio.dir/all
+CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/esp_driver_parlio/CMakeFiles/__idf_esp_driver_parlio.dir/all
 CMakeFiles/DentalSystemS3.elf.dir/all: CMakeFiles/_project_elf_src.dir/all
 CMakeFiles/DentalSystemS3.elf.dir/all: CMakeFiles/__ldgen_output_sections.ld.dir/all
 CMakeFiles/DentalSystemS3.elf.dir/all: esp-idf/riscv/CMakeFiles/__idf_riscv.dir/all
@@ -4738,26 +4738,6 @@ CMakeFiles/uf2-app.dir/clean:
 # Target rules for target CMakeFiles/__ldgen_output_sections.ld.dir
 
 # All Build rule for target.
-CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_gptimer/CMakeFiles/__idf_esp_driver_gptimer.dir/all
-CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/unity/CMakeFiles/__idf_unity.dir/all
-CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/cmock/CMakeFiles/__idf_cmock.dir/all
-CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_blockdev_util/CMakeFiles/__idf_esp_blockdev_util.dir/all
-CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_hal_ana_cmpr/CMakeFiles/__idf_esp_hal_ana_cmpr.dir/all
-CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_ana_cmpr/CMakeFiles/__idf_esp_driver_ana_cmpr.dir/all
-CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_bitscrambler/CMakeFiles/__idf_esp_driver_bitscrambler.dir/all
-CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_isp/CMakeFiles/__idf_esp_driver_isp.dir/all
-CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_cam/CMakeFiles/__idf_esp_driver_cam.dir/all
-CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_i2c/CMakeFiles/__idf_esp_driver_i2c.dir/all
-CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_hal_i3c/CMakeFiles/__idf_esp_hal_i3c.dir/all
-CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_i3c/CMakeFiles/__idf_esp_driver_i3c.dir/all
-CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_hal_jpeg/CMakeFiles/__idf_esp_hal_jpeg.dir/all
-CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_jpeg/CMakeFiles/__idf_esp_driver_jpeg.dir/all
-CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_hal_ledc/CMakeFiles/__idf_esp_hal_ledc.dir/all
-CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_ledc/CMakeFiles/__idf_esp_driver_ledc.dir/all
-CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_hal_mcpwm/CMakeFiles/__idf_esp_hal_mcpwm.dir/all
-CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_mcpwm/CMakeFiles/__idf_esp_driver_mcpwm.dir/all
-CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_hal_parlio/CMakeFiles/__idf_esp_hal_parlio.dir/all
-CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_parlio/CMakeFiles/__idf_esp_driver_parlio.dir/all
 CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_hal_pcnt/CMakeFiles/__idf_esp_hal_pcnt.dir/all
 CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_pcnt/CMakeFiles/__idf_esp_driver_pcnt.dir/all
 CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_hal_ppa/CMakeFiles/__idf_esp_hal_ppa.dir/all
@@ -4788,6 +4768,26 @@ CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/espressif__usb/CMakeFiles
 CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/espressif__usb_host_uvc/CMakeFiles/__idf_espressif__usb_host_uvc.dir/all
 CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/espressif__mdns/CMakeFiles/__idf_espressif__mdns.dir/all
 CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/main/CMakeFiles/__idf_main.dir/all
+CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_gptimer/CMakeFiles/__idf_esp_driver_gptimer.dir/all
+CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/unity/CMakeFiles/__idf_unity.dir/all
+CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/cmock/CMakeFiles/__idf_cmock.dir/all
+CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_blockdev_util/CMakeFiles/__idf_esp_blockdev_util.dir/all
+CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_hal_ana_cmpr/CMakeFiles/__idf_esp_hal_ana_cmpr.dir/all
+CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_ana_cmpr/CMakeFiles/__idf_esp_driver_ana_cmpr.dir/all
+CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_bitscrambler/CMakeFiles/__idf_esp_driver_bitscrambler.dir/all
+CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_isp/CMakeFiles/__idf_esp_driver_isp.dir/all
+CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_cam/CMakeFiles/__idf_esp_driver_cam.dir/all
+CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_i2c/CMakeFiles/__idf_esp_driver_i2c.dir/all
+CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_hal_i3c/CMakeFiles/__idf_esp_hal_i3c.dir/all
+CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_i3c/CMakeFiles/__idf_esp_driver_i3c.dir/all
+CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_hal_jpeg/CMakeFiles/__idf_esp_hal_jpeg.dir/all
+CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_jpeg/CMakeFiles/__idf_esp_driver_jpeg.dir/all
+CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_hal_ledc/CMakeFiles/__idf_esp_hal_ledc.dir/all
+CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_ledc/CMakeFiles/__idf_esp_driver_ledc.dir/all
+CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_hal_mcpwm/CMakeFiles/__idf_esp_hal_mcpwm.dir/all
+CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_mcpwm/CMakeFiles/__idf_esp_driver_mcpwm.dir/all
+CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_hal_parlio/CMakeFiles/__idf_esp_hal_parlio.dir/all
+CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/esp_driver_parlio/CMakeFiles/__idf_esp_driver_parlio.dir/all
 CMakeFiles/__ldgen_output_sections.ld.dir/all: esp-idf/riscv/CMakeFiles/__idf_riscv.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/__ldgen_output_sections.ld.dir/build.make CMakeFiles/__ldgen_output_sections.ld.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/__ldgen_output_sections.ld.dir/build.make CMakeFiles/__ldgen_output_sections.ld.dir/build
@@ -4806,18 +4806,6 @@ __ldgen_output_sections.ld: CMakeFiles/__ldgen_output_sections.ld.dir/rule
 .PHONY : __ldgen_output_sections.ld
 
 # codegen rule for target.
-CMakeFiles/__ldgen_output_sections.ld.dir/codegen: esp-idf/unity/CMakeFiles/__idf_unity.dir/all
-CMakeFiles/__ldgen_output_sections.ld.dir/codegen: esp-idf/esp_hal_ana_cmpr/CMakeFiles/__idf_esp_hal_ana_cmpr.dir/all
-CMakeFiles/__ldgen_output_sections.ld.dir/codegen: esp-idf/esp_driver_bitscrambler/CMakeFiles/__idf_esp_driver_bitscrambler.dir/all
-CMakeFiles/__ldgen_output_sections.ld.dir/codegen: esp-idf/esp_driver_isp/CMakeFiles/__idf_esp_driver_isp.dir/all
-CMakeFiles/__ldgen_output_sections.ld.dir/codegen: esp-idf/esp_driver_i2c/CMakeFiles/__idf_esp_driver_i2c.dir/all
-CMakeFiles/__ldgen_output_sections.ld.dir/codegen: esp-idf/esp_hal_i3c/CMakeFiles/__idf_esp_hal_i3c.dir/all
-CMakeFiles/__ldgen_output_sections.ld.dir/codegen: esp-idf/esp_hal_jpeg/CMakeFiles/__idf_esp_hal_jpeg.dir/all
-CMakeFiles/__ldgen_output_sections.ld.dir/codegen: esp-idf/esp_hal_ledc/CMakeFiles/__idf_esp_hal_ledc.dir/all
-CMakeFiles/__ldgen_output_sections.ld.dir/codegen: esp-idf/esp_driver_ledc/CMakeFiles/__idf_esp_driver_ledc.dir/all
-CMakeFiles/__ldgen_output_sections.ld.dir/codegen: esp-idf/esp_hal_mcpwm/CMakeFiles/__idf_esp_hal_mcpwm.dir/all
-CMakeFiles/__ldgen_output_sections.ld.dir/codegen: esp-idf/esp_hal_parlio/CMakeFiles/__idf_esp_hal_parlio.dir/all
-CMakeFiles/__ldgen_output_sections.ld.dir/codegen: esp-idf/esp_driver_parlio/CMakeFiles/__idf_esp_driver_parlio.dir/all
 CMakeFiles/__ldgen_output_sections.ld.dir/codegen: esp-idf/esp_hal_pcnt/CMakeFiles/__idf_esp_hal_pcnt.dir/all
 CMakeFiles/__ldgen_output_sections.ld.dir/codegen: esp-idf/esp_hal_ppa/CMakeFiles/__idf_esp_hal_ppa.dir/all
 CMakeFiles/__ldgen_output_sections.ld.dir/codegen: esp-idf/esp_hal_rmt/CMakeFiles/__idf_esp_hal_rmt.dir/all
@@ -4833,6 +4821,18 @@ CMakeFiles/__ldgen_output_sections.ld.dir/codegen: esp-idf/espressif__esp_serial
 CMakeFiles/__ldgen_output_sections.ld.dir/codegen: esp-idf/espressif__usb/CMakeFiles/__idf_espressif__usb.dir/all
 CMakeFiles/__ldgen_output_sections.ld.dir/codegen: esp-idf/espressif__usb_host_uvc/CMakeFiles/__idf_espressif__usb_host_uvc.dir/all
 CMakeFiles/__ldgen_output_sections.ld.dir/codegen: esp-idf/espressif__mdns/CMakeFiles/__idf_espressif__mdns.dir/all
+CMakeFiles/__ldgen_output_sections.ld.dir/codegen: esp-idf/unity/CMakeFiles/__idf_unity.dir/all
+CMakeFiles/__ldgen_output_sections.ld.dir/codegen: esp-idf/esp_hal_ana_cmpr/CMakeFiles/__idf_esp_hal_ana_cmpr.dir/all
+CMakeFiles/__ldgen_output_sections.ld.dir/codegen: esp-idf/esp_driver_bitscrambler/CMakeFiles/__idf_esp_driver_bitscrambler.dir/all
+CMakeFiles/__ldgen_output_sections.ld.dir/codegen: esp-idf/esp_driver_isp/CMakeFiles/__idf_esp_driver_isp.dir/all
+CMakeFiles/__ldgen_output_sections.ld.dir/codegen: esp-idf/esp_driver_i2c/CMakeFiles/__idf_esp_driver_i2c.dir/all
+CMakeFiles/__ldgen_output_sections.ld.dir/codegen: esp-idf/esp_hal_i3c/CMakeFiles/__idf_esp_hal_i3c.dir/all
+CMakeFiles/__ldgen_output_sections.ld.dir/codegen: esp-idf/esp_hal_jpeg/CMakeFiles/__idf_esp_hal_jpeg.dir/all
+CMakeFiles/__ldgen_output_sections.ld.dir/codegen: esp-idf/esp_hal_ledc/CMakeFiles/__idf_esp_hal_ledc.dir/all
+CMakeFiles/__ldgen_output_sections.ld.dir/codegen: esp-idf/esp_driver_ledc/CMakeFiles/__idf_esp_driver_ledc.dir/all
+CMakeFiles/__ldgen_output_sections.ld.dir/codegen: esp-idf/esp_hal_mcpwm/CMakeFiles/__idf_esp_hal_mcpwm.dir/all
+CMakeFiles/__ldgen_output_sections.ld.dir/codegen: esp-idf/esp_hal_parlio/CMakeFiles/__idf_esp_hal_parlio.dir/all
+CMakeFiles/__ldgen_output_sections.ld.dir/codegen: esp-idf/esp_driver_parlio/CMakeFiles/__idf_esp_driver_parlio.dir/all
 CMakeFiles/__ldgen_output_sections.ld.dir/codegen: esp-idf/riscv/CMakeFiles/__idf_riscv.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/__ldgen_output_sections.ld.dir/build.make CMakeFiles/__ldgen_output_sections.ld.dir/codegen
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/Users/tejasai/Downloads/orolexa/DentalS3/build/CMakeFiles --progress-num= "Finished codegen for target __ldgen_output_sections.ld"
@@ -8960,8 +8960,8 @@ esp-idf/esp_hal_rmt/CMakeFiles/__idf_esp_hal_rmt.dir/clean:
 # Target rules for target esp-idf/esp_driver_rmt/CMakeFiles/__idf_esp_driver_rmt.dir
 
 # All Build rule for target.
-esp-idf/esp_driver_rmt/CMakeFiles/__idf_esp_driver_rmt.dir/all: esp-idf/esp_driver_bitscrambler/CMakeFiles/__idf_esp_driver_bitscrambler.dir/all
 esp-idf/esp_driver_rmt/CMakeFiles/__idf_esp_driver_rmt.dir/all: esp-idf/esp_hal_rmt/CMakeFiles/__idf_esp_hal_rmt.dir/all
+esp-idf/esp_driver_rmt/CMakeFiles/__idf_esp_driver_rmt.dir/all: esp-idf/esp_driver_bitscrambler/CMakeFiles/__idf_esp_driver_bitscrambler.dir/all
 esp-idf/esp_driver_rmt/CMakeFiles/__idf_esp_driver_rmt.dir/all: esp-idf/riscv/CMakeFiles/__idf_riscv.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_driver_rmt/CMakeFiles/__idf_esp_driver_rmt.dir/build.make esp-idf/esp_driver_rmt/CMakeFiles/__idf_esp_driver_rmt.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_driver_rmt/CMakeFiles/__idf_esp_driver_rmt.dir/build.make esp-idf/esp_driver_rmt/CMakeFiles/__idf_esp_driver_rmt.dir/build
@@ -9571,11 +9571,11 @@ esp-idf/esp_https_server/CMakeFiles/__idf_esp_https_server.dir/clean:
 # Target rules for target esp-idf/esp_lcd/CMakeFiles/__idf_esp_lcd.dir
 
 # All Build rule for target.
+esp-idf/esp_lcd/CMakeFiles/__idf_esp_lcd.dir/all: esp-idf/esp_hal_lcd/CMakeFiles/__idf_esp_hal_lcd.dir/all
 esp-idf/esp_lcd/CMakeFiles/__idf_esp_lcd.dir/all: esp-idf/esp_driver_bitscrambler/CMakeFiles/__idf_esp_driver_bitscrambler.dir/all
 esp-idf/esp_lcd/CMakeFiles/__idf_esp_lcd.dir/all: esp-idf/esp_driver_i2c/CMakeFiles/__idf_esp_driver_i2c.dir/all
 esp-idf/esp_lcd/CMakeFiles/__idf_esp_lcd.dir/all: esp-idf/esp_hal_parlio/CMakeFiles/__idf_esp_hal_parlio.dir/all
 esp-idf/esp_lcd/CMakeFiles/__idf_esp_lcd.dir/all: esp-idf/esp_driver_parlio/CMakeFiles/__idf_esp_driver_parlio.dir/all
-esp-idf/esp_lcd/CMakeFiles/__idf_esp_lcd.dir/all: esp-idf/esp_hal_lcd/CMakeFiles/__idf_esp_hal_lcd.dir/all
 esp-idf/esp_lcd/CMakeFiles/__idf_esp_lcd.dir/all: esp-idf/riscv/CMakeFiles/__idf_riscv.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_lcd/CMakeFiles/__idf_esp_lcd.dir/build.make esp-idf/esp_lcd/CMakeFiles/__idf_esp_lcd.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/esp_lcd/CMakeFiles/__idf_esp_lcd.dir/build.make esp-idf/esp_lcd/CMakeFiles/__idf_esp_lcd.dir/build
@@ -10075,14 +10075,14 @@ esp-idf/espressif__mdns/CMakeFiles/__idf_espressif__mdns.dir/clean:
 # Target rules for target esp-idf/main/CMakeFiles/__idf_main.dir
 
 # All Build rule for target.
-esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/esp_driver_i2c/CMakeFiles/__idf_esp_driver_i2c.dir/all
-esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/esp_hal_ledc/CMakeFiles/__idf_esp_hal_ledc.dir/all
-esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/esp_driver_ledc/CMakeFiles/__idf_esp_driver_ledc.dir/all
 esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/esp_hal_emac/CMakeFiles/__idf_esp_hal_emac.dir/all
 esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/esp_eth/CMakeFiles/__idf_esp_eth.dir/all
 esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/espressif__usb/CMakeFiles/__idf_espressif__usb.dir/all
 esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/espressif__usb_host_uvc/CMakeFiles/__idf_espressif__usb_host_uvc.dir/all
 esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/espressif__mdns/CMakeFiles/__idf_espressif__mdns.dir/all
+esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/esp_driver_i2c/CMakeFiles/__idf_esp_driver_i2c.dir/all
+esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/esp_hal_ledc/CMakeFiles/__idf_esp_hal_ledc.dir/all
+esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/esp_driver_ledc/CMakeFiles/__idf_esp_driver_ledc.dir/all
 esp-idf/main/CMakeFiles/__idf_main.dir/all: esp-idf/riscv/CMakeFiles/__idf_riscv.dir/all
 	$(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/depend
 	$(MAKE) $(MAKESILENT) -f esp-idf/main/CMakeFiles/__idf_main.dir/build.make esp-idf/main/CMakeFiles/__idf_main.dir/build

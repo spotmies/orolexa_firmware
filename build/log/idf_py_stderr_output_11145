@@ -1,0 +1,10 @@
+Command: /Users/tejasai/.espressif/python_env/idf6.1_py3.14_env/bin/python /Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/tools/idf_monitor.py -p /dev/cu.usbmodem5AAF2857331 -b 115200 --toolchain-prefix riscv32-esp-elf- --target esp32p4 --revision 1 --decode-panic backtrace /Users/tejasai/Downloads/orolexa/DentalS3/build/DentalSystemS3.elf /Users/tejasai/Downloads/orolexa/DentalS3/build/bootloader/bootloader.elf -m '/Users/tejasai/.espressif/python_env/idf6.1_py3.14_env/bin/python' '/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/tools/idf.py' '-p' '/dev/cu.usbmodem5AAF2857331'
+[0;33m--- esp-idf-monitor 1.9.0 on /dev/cu.usbmodem5AAF2857331 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0m--- 0x4ff29ed0: [0;33mesp_bootloader_get_description[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_bootloader_format/esp_bootloader_desc.c[0m[0m:[1;31m40[0m
+[0m--- 0x4ff2cbd0: [0;33mis_xmc_chip_strict[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/bootloader_support/bootloader_flash/src/bootloader_flash.c[0m[0m:[1;31m925[0m
+[0m--- 0x4ff29eda: [0;33mcall_start_cpu0[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/bootloader/subproject/main/bootloader_start.c[0m[0m:[1;31m27[0m
+[0m--- 0x40071890: [0;33mwifi_sta_receive[0m[0m at [0;32m/Users/tejasai/Downloads/orolexa/DentalS3/.espressif/esp-idf/components/esp_wifi/src/wifi_netif.c[0m[0m:[1;31m38[0m
+[1;31m--- Error: read failed: [Errno 6] Device not configured[0m
+[0;33m--- Waiting for the device to reconnect[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m.[0m[0;33m[0m
+[0m

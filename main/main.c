@@ -493,7 +493,20 @@ static void drain_frame_queue(void)
 
 static void camera_task(void *arg)
 {
-    /* 1080p MJPEG @ 30 fps. With PSRAM: larger buffers; without: smaller to fit internal RAM. */
+    /* Try a few common MJPEG modes because some modules (e.g. 1MP GC1009) do not support 1080p. */
+    typedef struct {
+        uint16_t h_res;
+        uint16_t v_res;
+        uint8_t fps;
+    } uvc_mode_t;
+
+    static const uvc_mode_t try_modes[] = {
+        {1920, 1080, 30},
+        {1280,  720, 30},
+        {1280,  720, 25},
+        { 640,  480, 30},
+    };
+
     uvc_host_stream_config_t cfg = {
         .frame_cb = frame_cb,
         .event_cb = stream_event_cb,
@@ -520,7 +533,23 @@ static void camera_task(void *arg)
     };
 
     while (1) {
-        if (uvc_host_stream_open(&cfg, pdMS_TO_TICKS(8000), &uvc_stream) == ESP_OK) {
+        bool opened = false;
+        for (size_t i = 0; i < sizeof(try_modes) / sizeof(try_modes[0]); ++i) {
+            cfg.vs_format.h_res = try_modes[i].h_res;
+            cfg.vs_format.v_res = try_modes[i].v_res;
+            cfg.vs_format.fps = try_modes[i].fps;
+
+            ESP_LOGI(TAG, "Trying camera mode: MJPEG %ux%u @ %u fps",
+                     cfg.vs_format.h_res, cfg.vs_format.v_res, cfg.vs_format.fps);
+            if (uvc_host_stream_open(&cfg, pdMS_TO_TICKS(8000), &uvc_stream) == ESP_OK) {
+                ESP_LOGI(TAG, "Camera stream opened: MJPEG %ux%u @ %u fps",
+                         cfg.vs_format.h_res, cfg.vs_format.v_res, cfg.vs_format.fps);
+                opened = true;
+                break;
+            }
+        }
+
+        if (opened) {
             uvc_connected = true;
             current_mode = MODE_CAMERA;
             if (motor_cmd_queue) {
@@ -541,6 +570,8 @@ static void camera_task(void *arg)
             ESP_LOGI(TAG, "USB camera disconnected, waiting %d s before retry", (int)(UVC_RETRY_AFTER_DISCONNECT_MS / 1000));
             vTaskDelay(pdMS_TO_TICKS(UVC_RETRY_AFTER_DISCONNECT_MS));
         } else {
+            ESP_LOGW(TAG, "Could not open camera in tried MJPEG modes; retrying in %d s",
+                     (int)(UVC_RETRY_AFTER_OPEN_FAIL_MS / 1000));
             vTaskDelay(pdMS_TO_TICKS(UVC_RETRY_AFTER_OPEN_FAIL_MS));
         }
     }
