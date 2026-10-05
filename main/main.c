@@ -100,6 +100,8 @@ static bool uvc_connected = false;
 static bool sta_has_ip = false;
 static volatile bool force_ap = false;
 static bool provisioning_done = false;
+#define STA_MAX_RETRIES 10
+static int sta_retry_count = 0;
 
 static char saved_ssid[32];
 static char saved_pass[64];
@@ -883,6 +885,7 @@ static void wifi_event_handler(void *arg, esp_event_base_t base, int32_t id,
                                void *data) {
   if (base == IP_EVENT && id == IP_EVENT_STA_GOT_IP) {
     sta_has_ip = true;
+    sta_retry_count = 0;
     stop_provision_server();
     start_stream_server();
     start_mdns();
@@ -895,7 +898,18 @@ static void wifi_event_handler(void *arg, esp_event_base_t base, int32_t id,
     sta_has_ip = false;
     stop_mdns();
     stop_stream_server();
-    force_ap = true;
+    /* A router reboot or brief drop must not push the device into setup mode:
+     * retry the saved network first, fall back to the provisioning AP only
+     * when it keeps failing (e.g. wrong password). */
+    if (sta_retry_count < STA_MAX_RETRIES) {
+      sta_retry_count++;
+      ESP_LOGW(TAG, "WiFi disconnected, retry %d/%d", sta_retry_count,
+               STA_MAX_RETRIES);
+      esp_wifi_remote_connect();
+    } else {
+      sta_retry_count = 0;
+      force_ap = true;
+    }
   }
 }
 
